@@ -1,0 +1,137 @@
+/* ===== Math Odyssey — Global Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0a0a1a;
+  --bg2:#12122a;
+  --neon-cyan:#00f0ff;
+  --neon-pink:#ff2d95;
+  --neon-green:#39ff14;
+  --neon-yellow:#ffe600;
+  --neon-purple:#b44dff;
+  --neon-orange:#ff6b35;
+  --glass:rgba(255,255,255,0.04);
+  --glass-border:rgba(255,255,255,0.08);
+  --font-display:'Orbitron','Segoe UI',sans-serif;
+  --font-body:'Segoe UI','Noto Sans SC',sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:#e0e0e0;
+  font-family:var(--font-display);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+#root{
+  min-height:100vh;
+  position:relative;
+}
+
+/* ===== Neon Text ===== */
+.neon-text{text-shadow:0 0 10px var(--neon-cyan),0 0 30px var(--neon-cyan),0 0 60px rgba(0,240,255,0.3)}
+.neon-pink-text{text-shadow:0 0 10px var(--neon-pink),0 0 30px var(--neon-pink)}
+.neon-green-text{text-shadow:0 0 10px var(--neon-green),0 0 30px var(--neon-green)}
+.neon-purple-text{text-shadow:0 0 10px var(--neon-purple),0 0 30px var(--neon-purple)}
+.neon-yellow-text{text-shadow:0 0 10px var(--neon-yellow),0 0 30px var(--neon-yellow)}
+
+/* ===== Glass Panel ===== */
+.glass-panel{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:12px;
+  backdrop-filter:blur(10px);
+}
+
+/* ===== Buttons ===== */
+.btn{
+  background:transparent;
+  border:2px solid var(--neon-cyan);
+  color:var(--neon-cyan);
+  padding:14px 36px;
+  font-size:16px;
+  font-family:var(--font-display);
+  cursor:pointer;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  position:relative;
+  overflow:hidden;
+  transition:all .3s;
+  border-radius:4px;
+}
+.btn:hover{
+  background:rgba(0,240,255,0.1);
+  box-shadow:0 0 20px rgba(0,240,255,0.3),inset 0 0 20px rgba(0,240,255,0.1);
+  transform:translateY(-2px);
+}
+.btn:active{transform:translateY(0)}
+.btn-pink{border-color:var(--neon-pink);color:var(--neon-pink)}
+.btn-pink:hover{background:rgba(255,45,149,0.1);box-shadow:0 0 20px rgba(255,45,149,0.3)}
+.btn-green{border-color:var(--neon-green);color:var(--neon-green)}
+.btn-green:hover{background:rgba(57,255,20,0.1);box-shadow:0 0 20px rgba(57,255,20,0.3)}
+.btn-purple{border-color:var(--neon-purple);color:var(--neon-purple)}
+.btn-purple:hover{background:rgba(180,77,255,0.1);box-shadow:0 0 20px rgba(180,77,255,0.3)}
+.btn-yellow{border-color:var(--neon-yellow);color:var(--neon-yellow)}
+.btn-yellow:hover{background:rgba(255,230,0,0.1);box-shadow:0 0 20px rgba(255,230,0,0.3)}
+.btn-small{padding:8px 20px;font-size:12px;letter-spacing:2px}
+
+/* ===== Modal ===== */
+.modal-overlay{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.8);z-index:100;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.active{display:flex}
+.modal-card{
+  max-width:520px;width:100%;padding:36px;border-radius:16px;position:relative;
+  background:linear-gradient(135deg,rgba(18,18,42,0.98),rgba(10,10,26,0.98));
+  border:1px solid rgba(0,240,255,0.2);box-shadow:0 0 60px rgba(0,240,255,0.1);
+}
+.modal-card h3{font-size:20px;margin-bottom:16px;letter-spacing:2px}
+.modal-card .content{font-size:14px;line-height:2;color:rgba(255,255,255,0.7);margin-bottom:24px;font-family:var(--font-body)}
+.modal-card .content strong{color:var(--neon-cyan)}
+
+/* ===== Progress Bar ===== */
+.progress-bar{
+  width:100%;height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;
+}
+.progress-bar-fill{
+  height:100%;border-radius:4px;transition:width 0.6s ease;
+  background:linear-gradient(90deg,var(--neon-cyan),var(--neon-green));
+  box-shadow:0 0 10px rgba(0,240,255,0.4);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(0,240,255,0.2);border-radius:2px}
+
+/* ===== Screen transitions ===== */
+.screen-enter{opacity:0;transform:translateY(10px)}
+.screen-enter-active{opacity:1;transform:translateY(0);transition:all 0.3s ease}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .btn{padding:10px 24px;font-size:13px;letter-spacing:2px}
+}
+
+/* ===== Animations ===== */
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:0.6}
+}
+@keyframes glow-pulse{
+  0%,100%{box-shadow:0 0 5px rgba(0,240,255,0.3)}
+  50%{box-shadow:0 0 20px rgba(0,240,255,0.6),0 0 40px rgba(0,240,255,0.2)}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-6px)}
+  75%{transform:translateX(6px)}
+}
