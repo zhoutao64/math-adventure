@@ -18,12 +18,13 @@ export default function StationMap() {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', alignItems: 'center',
-      padding: '40px 20px', minHeight: '100vh',
+      padding: '20px 12px', minHeight: '100vh',
     }}>
-      <NeonButton onClick={() => navigate('/')} size="small"
-        style={{ position: 'absolute', top: 20, left: 20 }}>
-        ← Back
-      </NeonButton>
+      <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
+        <NeonButton onClick={() => navigate('/')} size="small">
+          ← Back
+        </NeonButton>
+      </div>
 
       <NeonText as="h2" color="cyan" style={{
         fontSize: 'clamp(20px, 4vw, 32px)', letterSpacing: 4, marginBottom: 8,
@@ -45,8 +46,10 @@ export default function StationMap() {
       <StationView size={Math.min(380, window.innerWidth - 40)} />
 
       <div style={{
-        display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center',
-        maxWidth: 700, marginTop: 30,
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(150px, calc(50% - 8px)), 1fr))',
+        gap: 12,
+        maxWidth: 700, width: '100%', marginTop: 30, padding: '0 4px',
       }}>
         {SYSTEMS.map(sys => {
           const sysState = state.systems[sys.id]
@@ -60,7 +63,7 @@ export default function StationMap() {
               className="glass-panel"
               onClick={() => !isLocked && navigate(`/station/${sys.id}`)}
               style={{
-                width: 180, padding: '20px 16px', cursor: isLocked ? 'default' : 'pointer',
+                padding: '20px 16px', cursor: isLocked ? 'default' : 'pointer',
                 opacity: isLocked ? 0.25 : 1, transition: 'all 0.3s', textAlign: 'center',
                 borderColor: isComplete ? `var(--neon-${sys.color})` : undefined,
               }}

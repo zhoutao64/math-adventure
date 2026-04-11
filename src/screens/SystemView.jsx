@@ -18,12 +18,13 @@ export default function SystemView() {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', alignItems: 'center',
-      padding: '40px 20px', minHeight: '100vh',
+      padding: '20px 12px', minHeight: '100vh',
     }}>
-      <NeonButton onClick={() => navigate('/station')} size="small"
-        style={{ position: 'absolute', top: 20, left: 20 }}>
-        ← Back
-      </NeonButton>
+      <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
+        <NeonButton onClick={() => navigate('/station')} size="small">
+          ← Back
+        </NeonButton>
+      </div>
 
       <div style={{
         display: 'inline-block', padding: '6px 16px',

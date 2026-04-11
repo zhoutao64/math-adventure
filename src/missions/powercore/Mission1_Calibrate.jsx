@@ -14,6 +14,32 @@ const FUEL_TASKS = [
   { target: -2.5, label: '-2.5', discovery: 'decimals', title: 'Decimal Negatives', desc: 'Negative decimals exist too! -2.5 is halfway between -2 and -3. Every point on the number line represents a real number.' },
 ]
 
+function useCanvasSize() {
+  const [size, setSize] = useState(() => {
+    const w = typeof window !== 'undefined' ? window.innerWidth : 700
+    return {
+      canvasW: Math.min(700, w - 40),
+      canvasH: w < 480 ? 150 : 200,
+      dpr: typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1,
+    }
+  })
+
+  useEffect(() => {
+    function onResize() {
+      const w = window.innerWidth
+      setSize({
+        canvasW: Math.min(700, w - 40),
+        canvasH: w < 480 ? 150 : 200,
+        dpr: window.devicePixelRatio || 1,
+      })
+    }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  return size
+}
+
 export default function Mission1_Calibrate({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const canvasRef = useRef(null)
@@ -29,8 +55,26 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
   const ahaCount = mState.ahaMoments.length
 
   const task = FUEL_TASKS[currentTask]
-  const canvasW = Math.min(700, typeof window !== 'undefined' ? window.innerWidth - 40 : 700)
-  const canvasH = 200
+  const { canvasW, canvasH, dpr } = useCanvasSize()
+
+  // Responsive metrics scaled by canvas width
+  const scale = canvasW / 700
+  const m = {
+    tickFont: `${Math.max(12, Math.round(15 * scale))}px Orbitron`,
+    slotFont: `bold ${Math.max(11, Math.round(14 * scale))}px Orbitron`,
+    rodFont: `bold ${Math.max(12, Math.round(15 * scale))}px Orbitron`,
+    dragFont: `bold ${Math.max(13, Math.round(17 * scale))}px Orbitron`,
+    tickH: Math.max(10, Math.round(12 * scale)),
+    halfTickH: Math.max(5, Math.round(6 * scale)),
+    rodHW: Math.max(6, Math.round(4 / scale > 8 ? 8 : 4 + 4 * scale)),
+    rodHH: Math.max(16, Math.round(18 * scale)),
+    slotW: Math.max(36, Math.round(30 * scale)),
+    slotH: Math.max(40, Math.round(40 * scale)),
+    glowR: Math.max(16, Math.round(20 * scale)),
+    labelY: Math.max(22, Math.round(28 * scale)),
+    rodLabelY: Math.max(20, Math.round(24 * scale)),
+    snapThreshold: Math.max(0.3, (20 / canvasW) * (viewRange.max - viewRange.min)),
+  }
 
   const xToCanvas = useCallback((val) => {
     const { min, max } = viewRange
@@ -47,9 +91,13 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
+
+    // DPI-aware canvas sizing
+    canvas.width = canvasW * dpr
+    canvas.height = canvasH * dpr
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+
     const w = canvasW, h = canvasH
-    canvas.width = w
-    canvas.height = h
     ctx.clearRect(0, 0, w, h)
 
     const cy = h / 2
@@ -65,7 +113,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
 
     // Tick marks and labels
     ctx.fillStyle = 'rgba(255,255,255,0.5)'
-    ctx.font = '11px Orbitron'
+    ctx.font = m.tickFont
     ctx.textAlign = 'center'
     const step = max - min <= 4 ? 0.5 : 1
     for (let v = Math.ceil(min); v <= Math.floor(max); v += step) {
@@ -74,28 +122,26 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       ctx.strokeStyle = isInt ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.1)'
       ctx.lineWidth = isInt ? 1.5 : 1
       ctx.beginPath()
-      ctx.moveTo(x, cy - (isInt ? 12 : 6))
-      ctx.lineTo(x, cy + (isInt ? 12 : 6))
+      ctx.moveTo(x, cy - (isInt ? m.tickH : m.halfTickH))
+      ctx.lineTo(x, cy + (isInt ? m.tickH : m.halfTickH))
       ctx.stroke()
       if (isInt) {
         ctx.fillStyle = 'rgba(255,255,255,0.5)'
-        ctx.fillText(v.toString(), x, cy + 28)
+        ctx.fillText(v.toString(), x, cy + m.labelY)
       }
     }
 
     // Target slot (pulsing dashed box)
     if (!placed.includes(currentTask) && task) {
       const tx = xToCanvas(task.target)
-      const slotW = 30, slotH = 40
       ctx.setLineDash([4, 4])
       ctx.strokeStyle = 'rgba(0,240,255,0.4)'
       ctx.lineWidth = 1.5
-      ctx.strokeRect(tx - slotW / 2, cy - slotH / 2, slotW, slotH)
+      ctx.strokeRect(tx - m.slotW / 2, cy - m.slotH / 2, m.slotW, m.slotH)
       ctx.setLineDash([])
-      // Label above
       ctx.fillStyle = 'rgba(0,240,255,0.5)'
-      ctx.font = 'bold 10px Orbitron'
-      ctx.fillText('?', tx, cy - slotH / 2 - 8)
+      ctx.font = m.slotFont
+      ctx.fillText('?', tx, cy - m.slotH / 2 - 8)
     }
 
     // Placed fuel rods
@@ -103,63 +149,62 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       const t = FUEL_TASKS[idx]
       const fx = xToCanvas(t.target)
       // Glow
-      const grad = ctx.createRadialGradient(fx, cy, 0, fx, cy, 20)
+      const grad = ctx.createRadialGradient(fx, cy, 0, fx, cy, m.glowR)
       grad.addColorStop(0, 'rgba(57,255,20,0.2)')
       grad.addColorStop(1, 'rgba(57,255,20,0)')
       ctx.fillStyle = grad
-      ctx.fillRect(fx - 20, cy - 20, 40, 40)
+      ctx.fillRect(fx - m.glowR, cy - m.glowR, m.glowR * 2, m.glowR * 2)
       // Rod
       ctx.fillStyle = 'rgba(57,255,20,0.8)'
-      ctx.fillRect(fx - 4, cy - 18, 8, 36)
+      ctx.fillRect(fx - m.rodHW, cy - m.rodHH, m.rodHW * 2, m.rodHH * 2)
       ctx.strokeStyle = 'rgba(57,255,20,0.9)'
       ctx.lineWidth = 1.5
-      ctx.strokeRect(fx - 4, cy - 18, 8, 36)
+      ctx.strokeRect(fx - m.rodHW, cy - m.rodHH, m.rodHW * 2, m.rodHH * 2)
       // Label
       ctx.fillStyle = 'rgba(57,255,20,0.9)'
-      ctx.font = 'bold 11px Orbitron'
+      ctx.font = m.rodFont
       ctx.textAlign = 'center'
-      ctx.fillText(t.label, fx, cy - 24)
+      ctx.fillText(t.label, fx, cy - m.rodLabelY)
     })
 
     // Dragging fuel rod
     if (isDragging && fuelRodX !== null) {
       const fx = xToCanvas(fuelRodX)
       ctx.fillStyle = 'rgba(0,240,255,0.7)'
-      ctx.fillRect(fx - 4, cy - 18, 8, 36)
+      ctx.fillRect(fx - m.rodHW, cy - m.rodHH, m.rodHW * 2, m.rodHH * 2)
       ctx.strokeStyle = 'rgba(0,240,255,0.9)'
       ctx.lineWidth = 1.5
-      ctx.strokeRect(fx - 4, cy - 18, 8, 36)
+      ctx.strokeRect(fx - m.rodHW, cy - m.rodHH, m.rodHW * 2, m.rodHH * 2)
       // Show value
       ctx.fillStyle = 'rgba(0,240,255,0.9)'
-      ctx.font = 'bold 12px Orbitron'
+      ctx.font = m.dragFont
       ctx.textAlign = 'center'
-      ctx.fillText(fuelRodX.toFixed(2), fx, cy - 24)
+      ctx.fillText(fuelRodX.toFixed(2), fx, cy - m.rodLabelY)
     }
-  }, [viewRange, canvasW, currentTask, placed, isDragging, fuelRodX, xToCanvas, task])
+  }, [viewRange, canvasW, canvasH, dpr, currentTask, placed, isDragging, fuelRodX, xToCanvas, task, m])
 
   function handlePointerDown(e) {
     if (completed || placed.includes(currentTask)) return
     const rect = canvasRef.current.getBoundingClientRect()
-    const px = e.clientX - rect.left
+    const px = (e.clientX - rect.left) * (canvasW / rect.width)
     setFuelRodX(canvasToX(px))
     setIsDragging(true)
+    canvasRef.current.setPointerCapture(e.pointerId)
   }
 
   function handlePointerMove(e) {
     if (!isDragging) return
     const rect = canvasRef.current.getBoundingClientRect()
-    const px = Math.max(0, Math.min(canvasW, e.clientX - rect.left))
+    const px = Math.max(0, Math.min(canvasW, (e.clientX - rect.left) * (canvasW / rect.width)))
     let val = canvasToX(px)
-    // Snap to target if close enough
-    if (task && Math.abs(val - task.target) < 0.3) val = task.target
+    if (task && Math.abs(val - task.target) < m.snapThreshold) val = task.target
     setFuelRodX(val)
   }
 
   function handlePointerUp() {
     if (!isDragging || fuelRodX === null) return
     setIsDragging(false)
-    if (task && Math.abs(fuelRodX - task.target) < 0.3) {
-      // Correct placement
+    if (task && Math.abs(fuelRodX - task.target) < m.snapThreshold) {
       setPlaced(prev => [...prev, currentTask])
       if (!mState.ahaMoments.includes(task.discovery)) {
         dispatch({ type: 'RECORD_AHA', systemId: 'powercore', missionId: '1', ahaId: task.discovery })
@@ -190,27 +235,28 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', alignItems: 'center',
-      padding: '20px', minHeight: '100vh',
+      padding: '20px 12px', minHeight: '100vh',
     }}>
-      <NeonButton onClick={onBack} size="small"
-        style={{ position: 'absolute', top: 20, left: 20 }}>
-        ← Exit
-      </NeonButton>
+      <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
+        <NeonButton onClick={onBack} size="small">
+          ← Exit
+        </NeonButton>
+      </div>
 
       <div style={{
         fontSize: 11, letterSpacing: 3, color: 'var(--neon-cyan)',
-        marginBottom: 6, marginTop: 10,
+        marginBottom: 6,
       }}>
         ⚡ MISSION 1
       </div>
 
-      <NeonText as="h2" color="cyan" style={{ fontSize: 22, marginBottom: 8 }}>
+      <NeonText as="h2" color="cyan" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
         校准反应堆
       </NeonText>
 
       <p style={{
-        fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 20,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500,
+        fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 20,
+        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
       }}>
         {completed
           ? '🎉 Reactor online! All fuel rods calibrated.'
@@ -219,12 +265,14 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       </p>
 
       {/* Canvas */}
-      <div className="glass-panel" style={{ padding: 16, marginBottom: 20 }}>
+      <div className="glass-panel" style={{ padding: 'clamp(8px, 2vw, 16px)', marginBottom: 20, maxWidth: '100%' }}>
         <canvas
           ref={canvasRef}
-          width={canvasW}
-          height={canvasH}
-          style={{ cursor: completed ? 'default' : 'crosshair', display: 'block', touchAction: 'none' }}
+          style={{
+            width: canvasW, height: canvasH,
+            cursor: completed ? 'default' : 'crosshair',
+            display: 'block', touchAction: 'none',
+          }}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
@@ -233,7 +281,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       </div>
 
       {/* Progress */}
-      <div style={{ width: '100%', maxWidth: 400 }}>
+      <div style={{ width: '100%', maxWidth: 400, padding: '0 8px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Reactor Power</span>
           <span>{placed.length}/{FUEL_TASKS.length}</span>
@@ -244,8 +292,8 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       {/* Hint */}
       {!completed && (
         <div className="glass-panel" style={{
-          marginTop: 20, padding: 16, maxWidth: 500, width: '100%',
-          fontSize: 12, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
+          marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%',
+          fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-cyan)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>

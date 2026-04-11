@@ -10,7 +10,7 @@ export default function Modal({ isOpen, onClose, title, titleColor = 'cyan', chi
         <div className="content">{children}</div>
         {onClose && (
           <div style={{ textAlign: 'center' }}>
-            <button className="btn btn-small" onClick={onClose}>OK</button>
+            <button className="btn btn-small" onClick={onClose} style={{ minHeight: 44 }}>OK</button>
           </div>
         )}
       </div>

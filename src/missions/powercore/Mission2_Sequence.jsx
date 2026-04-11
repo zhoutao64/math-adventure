@@ -5,12 +5,13 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', alignItems: 'center',
-      justifyContent: 'center', minHeight: '100vh', gap: 20, padding: 40,
+      justifyContent: 'center', minHeight: '100vh', gap: 20, padding: '20px 12px',
     }}>
-      <NeonButton onClick={onBack} size="small"
-        style={{ position: 'absolute', top: 20, left: 20 }}>
-        ← Exit
-      </NeonButton>
+      <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
+        <NeonButton onClick={onBack} size="small">
+          ← Exit
+        </NeonButton>
+      </div>
       <NeonText as="h2" color="cyan" style={{ fontSize: 24 }}>
         启动序列
       </NeonText>
