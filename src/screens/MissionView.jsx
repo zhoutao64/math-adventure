@@ -13,6 +13,12 @@ const missionComponents = {
   'comms-1': lazy(() => import('../missions/comms/Mission1_Pattern.jsx')),
   'comms-2': lazy(() => import('../missions/comms/Mission2_Antenna.jsx')),
   'comms-3': lazy(() => import('../missions/comms/Mission3_Frequency.jsx')),
+  'shields-1': lazy(() => import('../missions/shields/Mission1_Overlap.jsx')),
+  'shields-2': lazy(() => import('../missions/shields/Mission2_Substitution.jsx')),
+  'shields-3': lazy(() => import('../missions/shields/Mission3_Elimination.jsx')),
+  'launch-1': lazy(() => import('../missions/launch/Mission1_Arc.jsx')),
+  'launch-2': lazy(() => import('../missions/launch/Mission2_Factor.jsx')),
+  'launch-3': lazy(() => import('../missions/launch/Mission3_Formula.jsx')),
 }
 
 export default function MissionView() {
