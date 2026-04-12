@@ -51,7 +51,7 @@ export default function SystemView() {
           const mState = sysState?.missions[mission.id]
           const isCompleted = mState?.completed
           const prevCompleted = idx === 0 || sysState?.missions[system.missions[idx - 1].id]?.completed
-          const isLocked = !prevCompleted && !isCompleted
+          const isLocked = false // DEBUG: unlock all missions
           const ahaCount = mState?.ahaMoments.length || 0
 
           return (

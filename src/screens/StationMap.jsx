@@ -53,7 +53,7 @@ export default function StationMap() {
       }}>
         {SYSTEMS.map(sys => {
           const sysState = state.systems[sys.id]
-          const isLocked = sysState?.status === 'locked'
+          const isLocked = false // DEBUG: unlock all systems
           const isComplete = sysState?.status === 'complete'
           const completedCount = sys.missions.filter(m => sysState?.missions[m.id]?.completed).length
 

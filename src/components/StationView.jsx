@@ -35,8 +35,8 @@ export default function StationView({ size = 400 }) {
         const sys = state.systems[id]
         const isComplete = sys?.status === 'complete'
         const isAvailable = sys?.status === 'available'
-        const isLocked = sys?.status === 'locked'
-        const opacity = isLocked ? 0.2 : isComplete ? 1 : 0.7
+        const isLocked = false // DEBUG: unlock all systems
+        const opacity = isComplete ? 1 : 0.7
 
         return (
           <g key={id} opacity={opacity}>
