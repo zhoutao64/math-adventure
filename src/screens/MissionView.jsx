@@ -7,6 +7,9 @@ const missionComponents = {
   'powercore-1': lazy(() => import('../missions/powercore/Mission1_Calibrate.jsx')),
   'powercore-2': lazy(() => import('../missions/powercore/Mission2_Sequence.jsx')),
   'powercore-3': lazy(() => import('../missions/powercore/Mission3_PowerGrid.jsx')),
+  'navigation-1': lazy(() => import('../missions/navigation/Mission1_Balance.jsx')),
+  'navigation-2': lazy(() => import('../missions/navigation/Mission2_Orbit.jsx')),
+  'navigation-3': lazy(() => import('../missions/navigation/Mission3_Course.jsx')),
 }
 
 export default function MissionView() {

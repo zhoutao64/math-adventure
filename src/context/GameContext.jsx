@@ -23,7 +23,23 @@ function loadState() {
     const saved = localStorage.getItem(STORAGE_KEY)
     if (saved) {
       const parsed = JSON.parse(saved)
-      if (parsed.version === 1) return parsed
+      if (parsed.version === 1) {
+        // Merge any new missions from SYSTEMS into saved state
+        const fresh = createInitialState()
+        for (const sysId of Object.keys(fresh.systems)) {
+          if (!parsed.systems[sysId]) {
+            parsed.systems[sysId] = fresh.systems[sysId]
+          } else {
+            const freshMissions = fresh.systems[sysId].missions
+            for (const mId of Object.keys(freshMissions)) {
+              if (!parsed.systems[sysId].missions[mId]) {
+                parsed.systems[sysId].missions[mId] = freshMissions[mId]
+              }
+            }
+          }
+        }
+        return parsed
+      }
     }
   } catch {}
   return createInitialState()
