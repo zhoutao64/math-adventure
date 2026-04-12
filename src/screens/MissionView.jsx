@@ -10,6 +10,9 @@ const missionComponents = {
   'navigation-1': lazy(() => import('../missions/navigation/Mission1_Balance.jsx')),
   'navigation-2': lazy(() => import('../missions/navigation/Mission2_Orbit.jsx')),
   'navigation-3': lazy(() => import('../missions/navigation/Mission3_Course.jsx')),
+  'comms-1': lazy(() => import('../missions/comms/Mission1_Pattern.jsx')),
+  'comms-2': lazy(() => import('../missions/comms/Mission2_Antenna.jsx')),
+  'comms-3': lazy(() => import('../missions/comms/Mission3_Frequency.jsx')),
 }
 
 export default function MissionView() {
