@@ -54,9 +54,9 @@ const ANTENNA_TASKS = [
 
 // ─── Slope Visual ────────────────────────────────────────────
 function SlopeGrid({ point1, point2, rise, run, userSlope, solved }) {
-  // Grid bounds: x: -1 to 6, y: -2 to 8
-  const gx1 = -1, gx2 = 6, gy1 = -2, gy2 = 8
-  const W = 320, H = 260
+  // Grid bounds: equal range on both axes for uniform scale
+  const gx1 = -1, gx2 = 7, gy1 = -1, gy2 = 7
+  const W = 280, H = 280
   const px = (x) => ((x - gx1) / (gx2 - gx1)) * W
   const py = (y) => H - ((y - gy1) / (gy2 - gy1)) * H
 
@@ -64,14 +64,26 @@ function SlopeGrid({ point1, point2, rise, run, userSlope, solved }) {
     <svg viewBox={`0 0 ${W} ${H}`} style={{ width: '100%', maxWidth: 360, display: 'block', margin: '0 auto' }}>
       {/* Grid lines */}
       {Array.from({ length: gx2 - gx1 + 1 }, (_, i) => i + gx1).map(x => (
-        <line key={`gx${x}`} x1={px(x)} y1={0} x2={px(x)} y2={H}
-          stroke={x === 0 ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.07)'}
-          strokeWidth={x === 0 ? 1.5 : 0.5} />
+        <g key={`gx${x}`}>
+          <line x1={px(x)} y1={0} x2={px(x)} y2={H}
+            stroke={x === 0 ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.07)'}
+            strokeWidth={x === 0 ? 1.5 : 0.5} />
+          {x !== 0 && (
+            <text x={px(x)} y={py(0) + 14} fill="rgba(255,255,255,0.25)"
+              fontSize={10} textAnchor="middle" fontFamily="var(--font-display)">{x}</text>
+          )}
+        </g>
       ))}
       {Array.from({ length: gy2 - gy1 + 1 }, (_, i) => i + gy1).map(y => (
-        <line key={`gy${y}`} x1={0} y1={py(y)} x2={W} y2={py(y)}
-          stroke={y === 0 ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.07)'}
-          strokeWidth={y === 0 ? 1.5 : 0.5} />
+        <g key={`gy${y}`}>
+          <line x1={0} y1={py(y)} x2={W} y2={py(y)}
+            stroke={y === 0 ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.07)'}
+            strokeWidth={y === 0 ? 1.5 : 0.5} />
+          {y !== 0 && (
+            <text x={px(0) - 6} y={py(y) + 4} fill="rgba(255,255,255,0.25)"
+              fontSize={10} textAnchor="end" fontFamily="var(--font-display)">{y}</text>
+          )}
+        </g>
       ))}
 
       {/* Target line (dashed) */}
