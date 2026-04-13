@@ -312,7 +312,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
       </div>
 
       <div style={{
-        fontSize: 11, letterSpacing: 3, color: 'var(--neon-cyan)',
+        fontSize: 13, letterSpacing: 3, color: 'var(--neon-cyan)',
         marginBottom: 6,
       }}>
         ⚡ MISSION 2
@@ -337,7 +337,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
       {/* Task title */}
       {!completed && (
         <div style={{
-          fontSize: 10, letterSpacing: 3, color: 'var(--neon-yellow)',
+          fontSize: 12, letterSpacing: 3, color: 'var(--neon-yellow)',
           marginBottom: 12, opacity: 0.7,
         }}>
           {task?.title} — SEQUENCE {taskIndex + 1}/{SEQUENCE_TASKS.length}
@@ -370,7 +370,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
       {/* Anomaly message */}
       {showAnomaly && (
         <div style={{
-          color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2,
+          color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
           marginBottom: 12, textAlign: 'center',
           animation: 'pulse 1.5s',
         }}>
@@ -384,7 +384,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
           padding: 'clamp(14px, 2vw, 16px)', maxWidth: 400, width: '100%',
           marginBottom: 16, textAlign: 'center',
         }}>
-          <div style={{ fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)', marginBottom: 8 }}>
+          <div style={{ fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)', marginBottom: 8 }}>
             TARGET OUTPUT
           </div>
           <div style={{
@@ -399,7 +399,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Boot Progress</span>
           <span>{tasksCompleted}/{SEQUENCE_TASKS.length}</span>
         </div>
@@ -413,7 +413,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-cyan)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-cyan)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {wrongCount >= 2 ? task?.hint : 'Select the operator with the highest priority. The reactor will execute that command first.'}

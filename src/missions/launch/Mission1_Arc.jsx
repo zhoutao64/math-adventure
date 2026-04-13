@@ -228,7 +228,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
         </NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-green)', marginBottom: 6 }}>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-green)', marginBottom: 6 }}>
         🚀 MISSION 1
       </div>
 
@@ -265,7 +265,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
             {/* Legend */}
             <div style={{
               display: 'flex', justifyContent: 'center', gap: 20, marginTop: 8,
-              fontSize: 11, color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-body)',
+              fontSize: 13, color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-body)',
             }}>
               <span>
                 <span style={{ color: 'var(--neon-green)', opacity: 0.45 }}>- -</span> Target
@@ -297,7 +297,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   marginBottom: 6,
                 }}>
-                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
                     a (direction / width)
                   </span>
                   <span style={{
@@ -319,7 +319,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
                 />
                 <div style={{
                   display: 'flex', justifyContent: 'space-between',
-                  fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 4,
+                  fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 4,
                 }}>
                   <span>-2</span><span>2</span>
                 </div>
@@ -331,7 +331,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   marginBottom: 6,
                 }}>
-                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
                     h (horizontal shift)
                   </span>
                   <span style={{
@@ -353,7 +353,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
                 />
                 <div style={{
                   display: 'flex', justifyContent: 'space-between',
-                  fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 4,
+                  fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 4,
                 }}>
                   <span>-3</span><span>4</span>
                 </div>
@@ -365,7 +365,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   marginBottom: 6,
                 }}>
-                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
                     k (vertical shift)
                   </span>
                   <span style={{
@@ -387,7 +387,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
                 />
                 <div style={{
                   display: 'flex', justifyContent: 'space-between',
-                  fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 4,
+                  fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 4,
                 }}>
                   <span>-4</span><span>5</span>
                 </div>
@@ -405,7 +405,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
           {/* Wrong feedback */}
           {wrongFlash && (
             <div style={{
-              color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2,
+              color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
               ⚠ TRAJECTORY MISMATCH — adjust the sliders
@@ -423,7 +423,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Arcs Calibrated</span>
           <span>{tasksCompleted}/{ARC_TASKS.length}</span>
         </div>
@@ -437,7 +437,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-green)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-green)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {task?.hint || 'Adjust a, h, and k to match the dashed target curve.'}
@@ -458,5 +458,5 @@ export default function Mission1_Arc({ system, mission, onBack }) {
 }
 
 const meterLabel = {
-  fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
+  fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
 }

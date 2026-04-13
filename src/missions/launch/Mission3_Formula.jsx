@@ -322,7 +322,7 @@ export default function Mission3_Formula({ system, mission, onBack }) {
         </NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-green)', marginBottom: 6 }}>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-green)', marginBottom: 6 }}>
         🚀 MISSION 3
       </div>
 
@@ -389,7 +389,7 @@ export default function Mission3_Formula({ system, mission, onBack }) {
                     marginBottom: 6, opacity: 0.6,
                   }}>
                     <span style={{
-                      fontSize: 10, color: 'rgba(255,255,255,0.4)',
+                      fontSize: 12, color: 'rgba(255,255,255,0.4)',
                       fontFamily: 'var(--font-body)', minWidth: 50,
                     }}>
                       {h.stepLabel.split(':')[0]}
@@ -444,7 +444,7 @@ export default function Mission3_Formula({ system, mission, onBack }) {
                     {opt.label}
                   </div>
                   <div style={{
-                    fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 4,
+                    fontSize: 12, color: 'rgba(255,255,255,0.4)', marginTop: 4,
                     fontFamily: 'var(--font-body)', textAlign: 'center',
                   }}>
                     {opt.desc}
@@ -457,7 +457,7 @@ export default function Mission3_Formula({ system, mission, onBack }) {
           {/* Wrong feedback */}
           {wrongFlash !== null && (
             <div style={{
-              color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2,
+              color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
               ⚠ CALCULATION ERROR — try another choice
@@ -530,7 +530,7 @@ export default function Mission3_Formula({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Escape Velocity</span>
           <span>{tasksCompleted}/{FORMULA_TASKS.length}</span>
         </div>
@@ -544,7 +544,7 @@ export default function Mission3_Formula({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-green)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-green)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {task?.hint || 'Use the quadratic formula: identify a, b, c → compute discriminant → find roots.'}
@@ -565,5 +565,5 @@ export default function Mission3_Formula({ system, mission, onBack }) {
 }
 
 const meterLabel = {
-  fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
+  fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
 }

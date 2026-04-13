@@ -274,7 +274,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
         </NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-yellow)', marginBottom: 6 }}>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-yellow)', marginBottom: 6 }}>
         🧭 MISSION 3
       </div>
 
@@ -374,7 +374,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
                     {opt.label}
                   </div>
                   <div style={{
-                    fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 4,
+                    fontSize: 12, color: 'rgba(255,255,255,0.4)', marginTop: 4,
                     fontFamily: 'var(--font-body)', textAlign: 'center',
                   }}>
                     {opt.desc}
@@ -387,7 +387,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
           {/* Wrong feedback */}
           {wrongFlash !== null && (
             <div style={{
-              color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2,
+              color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
               ⚠ COURSE DEVIATION — try another operation
@@ -460,7 +460,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Course Corrections</span>
           <span>{tasksCompleted}/{COURSE_TASKS.length}</span>
         </div>
@@ -474,7 +474,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-yellow)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-yellow)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {task?.hint || 'Choose the operation that simplifies the equation one step closer to solving for x.'}
@@ -495,5 +495,5 @@ export default function Mission3_Course({ system, mission, onBack }) {
 }
 
 const meterLabel = {
-  fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
+  fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
 }

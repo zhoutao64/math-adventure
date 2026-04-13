@@ -102,7 +102,7 @@ function SignalTable({ givenPairs, queryX, queryAnswer, solved }) {
           }}>
             {row.x}
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.2)', fontSize: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.2)', fontSize: 14 }}>
             →
           </div>
           <div style={{
@@ -202,7 +202,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
         </NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
         📡 MISSION 1
       </div>
 
@@ -258,7 +258,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 marginBottom: 8,
               }}>
-                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
+                <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
                   f({task.queryX}) =
                 </span>
                 <span style={{
@@ -284,7 +284,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
               />
               <div style={{
                 display: 'flex', justifyContent: 'space-between',
-                fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 4,
+                fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 4,
               }}>
                 <span>{task.min}</span>
                 <span>{task.max}</span>
@@ -301,7 +301,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
           {/* Wrong feedback */}
           {wrongFlash && (
             <div style={{
-              color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2,
+              color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
               ⚠ SIGNAL INTERFERENCE — wrong prediction
@@ -319,7 +319,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Signals Decoded</span>
           <span>{tasksCompleted}/{PATTERN_TASKS.length}</span>
         </div>
@@ -333,7 +333,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {task?.hint || 'Study the pattern in the signal table and predict the missing output.'}
@@ -354,5 +354,5 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
 }
 
 const meterLabel = {
-  fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
+  fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
 }

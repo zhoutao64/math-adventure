@@ -31,12 +31,12 @@ export default function StationMap() {
       }}>
         Odyssey Station
       </NeonText>
-      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, letterSpacing: 2, marginBottom: 30 }}>
+      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, letterSpacing: 2, marginBottom: 30 }}>
         Restore all systems to escape
       </p>
 
       <div style={{ width: '100%', maxWidth: 300, marginBottom: 20 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6, letterSpacing: 1 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6, letterSpacing: 1 }}>
           <span>Station Repair</span>
           <span>{completedMissions}/{totalMissions}</span>
         </div>
@@ -75,10 +75,10 @@ export default function StationMap() {
               }}>
                 {sys.name}
               </div>
-              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 4 }}>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 4 }}>
                 {sys.nameCN}
               </div>
-              <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', letterSpacing: 1 }}>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', letterSpacing: 1 }}>
                 {isLocked ? 'LOCKED' : isComplete ? '✓ COMPLETE' : `${completedCount}/${sys.missions.length} missions`}
               </div>
             </div>

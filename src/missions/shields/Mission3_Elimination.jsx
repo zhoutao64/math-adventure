@@ -271,7 +271,7 @@ export default function Mission3_Elimination({ system, mission, onBack }) {
         <NeonButton onClick={onBack} size="small">← Exit</NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-purple)', marginBottom: 6 }}>🛡️ MISSION 3</div>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-purple)', marginBottom: 6 }}>🛡️ MISSION 3</div>
       <NeonText as="h2" color="purple" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>消元对决</NeonText>
 
       <p style={{ fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16, fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px' }}>
@@ -293,7 +293,7 @@ export default function Mission3_Elimination({ system, mission, onBack }) {
             {history.map((h, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, opacity: 0.5 }}>
                 <span style={{ fontSize: 'clamp(14px, 2.5vw, 14px)', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-display)', textDecoration: 'line-through' }}>{h.current}</span>
-                <span style={{ fontSize: 11, color: 'var(--neon-green)', fontFamily: 'var(--font-display)' }}>{h.op}</span>
+                <span style={{ fontSize: 13, color: 'var(--neon-green)', fontFamily: 'var(--font-display)' }}>{h.op}</span>
               </div>
             ))}
 
@@ -302,7 +302,7 @@ export default function Mission3_Elimination({ system, mission, onBack }) {
               {step?.current}
             </div>
             {step?.instruction && (
-              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginTop: 4, fontFamily: 'var(--font-body)' }}>{step.instruction}</div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginTop: 4, fontFamily: 'var(--font-body)' }}>{step.instruction}</div>
             )}
             {selected === 'correct' && (
               <div style={{ fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 700, color: 'var(--neon-green)', fontFamily: 'var(--font-display)', textAlign: 'center', marginTop: 8 }}>→ {step?.result}</div>
@@ -317,14 +317,14 @@ export default function Mission3_Elimination({ system, mission, onBack }) {
                   ...(wrongFlash === i ? { borderColor: 'var(--neon-pink)', background: 'rgba(255,45,149,0.1)', animation: 'shake 0.4s' } : {}),
                 }}>
                   <div style={{ fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 900, color: wrongFlash === i ? 'var(--neon-pink)' : 'var(--neon-purple)' }}>{opt.label}</div>
-                  <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 4, fontFamily: 'var(--font-body)', textAlign: 'center' }}>{opt.desc}</div>
+                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', marginTop: 4, fontFamily: 'var(--font-body)', textAlign: 'center' }}>{opt.desc}</div>
                 </div>
               ))}
             </div>
           )}
 
           {wrongFlash !== null && (
-            <div style={{ color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2, marginBottom: 8, textAlign: 'center' }}>⚠ SHIELD ERROR — try another operation</div>
+            <div style={{ color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2, marginBottom: 8, textAlign: 'center' }}>⚠ SHIELD ERROR — try another operation</div>
           )}
         </>
       )}
@@ -343,7 +343,7 @@ export default function Mission3_Elimination({ system, mission, onBack }) {
       )}
 
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Systems Solved</span><span>{tasksCompleted}/{ELIM_TASKS.length}</span>
         </div>
         <ProgressBar value={tasksCompleted} max={ELIM_TASKS.length} color="purple" />
@@ -351,7 +351,7 @@ export default function Mission3_Elimination({ system, mission, onBack }) {
 
       {!completed && !showResult && selected === null && (
         <div className="glass-panel" style={{ marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%', fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
-          <div style={{ color: 'var(--neon-purple)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>💡 GUIDE</div>
+          <div style={{ color: 'var(--neon-purple)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>💡 GUIDE</div>
           {task?.hint}
         </div>
       )}
@@ -365,4 +365,4 @@ export default function Mission3_Elimination({ system, mission, onBack }) {
   )
 }
 
-const meterLabel = { fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)' }
+const meterLabel = { fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)' }

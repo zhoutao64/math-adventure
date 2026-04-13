@@ -135,7 +135,7 @@ function LineGrid({ targetM, targetB, userM, userB, tablePairs, solved }) {
         maxWidth: 360, margin: '8px auto 0', padding: '0 4px',
       }}>
         <div style={{
-          display: 'flex', justifyContent: 'space-between', fontSize: 10,
+          display: 'flex', justifyContent: 'space-between', fontSize: 12,
           color: 'rgba(255,255,255,0.4)', marginBottom: 4,
         }}>
           <span>Signal Strength</span>
@@ -232,7 +232,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
         </NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
         📡 MISSION 3
       </div>
 
@@ -270,7 +270,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
                 {task.tablePairs.map(([x, y], i) => (
                   <div key={i} style={{
                     padding: '4px 10px', background: 'rgba(255,45,149,0.1)',
-                    borderRadius: 6, fontSize: 12, fontFamily: 'var(--font-display)',
+                    borderRadius: 6, fontSize: 14, fontFamily: 'var(--font-display)',
                     color: 'var(--neon-pink)',
                   }}>
                     ({x}, {y})
@@ -309,7 +309,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   marginBottom: 6,
                 }}>
-                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
                     m (slope) =
                   </span>
                   <span style={{
@@ -330,7 +330,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
                 />
                 <div style={{
                   display: 'flex', justifyContent: 'space-between',
-                  fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 2,
+                  fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 2,
                 }}>
                   <span>−3</span><span>0</span><span>3</span>
                 </div>
@@ -342,7 +342,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   marginBottom: 6,
                 }}>
-                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
                     b (intercept) =
                   </span>
                   <span style={{
@@ -363,7 +363,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
                 />
                 <div style={{
                   display: 'flex', justifyContent: 'space-between',
-                  fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 2,
+                  fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 2,
                 }}>
                   <span>−5</span><span>0</span><span>5</span>
                 </div>
@@ -391,7 +391,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
           {/* Wrong feedback */}
           {wrongFlash && (
             <div style={{
-              color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2,
+              color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
               ⚠ FREQUENCY MISMATCH — adjust m and b
@@ -409,7 +409,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Frequencies Tuned</span>
           <span>{tasksCompleted}/{FREQ_TASKS.length}</span>
         </div>
@@ -423,7 +423,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {task?.hint || 'Adjust slope (m) and intercept (b) so your line matches the target.'}
@@ -444,5 +444,5 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
 }
 
 const meterLabel = {
-  fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
+  fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
 }

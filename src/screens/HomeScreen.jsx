@@ -64,7 +64,7 @@ export default function HomeScreen() {
       </p>
 
       <p style={{
-        fontSize: 12, color: 'rgba(255,255,255,0.25)', letterSpacing: 2,
+        fontSize: 14, color: 'rgba(255,255,255,0.25)', letterSpacing: 2,
         maxWidth: 400, textAlign: 'center', lineHeight: 1.8, marginTop: 10,
         fontFamily: 'var(--font-body)',
       }}>
@@ -77,7 +77,7 @@ export default function HomeScreen() {
       </NeonButton>
 
       <p style={{
-        marginTop: 10, fontSize: 11, color: 'rgba(255,255,255,0.2)', letterSpacing: 2,
+        marginTop: 10, fontSize: 13, color: 'rgba(255,255,255,0.2)', letterSpacing: 2,
       }}>
         进入太空站
       </p>

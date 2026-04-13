@@ -29,7 +29,7 @@ export default function SystemView() {
       <div style={{
         display: 'inline-block', padding: '6px 16px',
         border: `1px solid var(--neon-${system.color})`,
-        borderRadius: 20, fontSize: 11, letterSpacing: 3,
+        borderRadius: 20, fontSize: 13, letterSpacing: 3,
         color: `var(--neon-${system.color})`, marginBottom: 16,
       }}>
         {system.icon} {system.name.toUpperCase()}
@@ -40,7 +40,7 @@ export default function SystemView() {
       }}>
         {system.nameCN}
       </NeonText>
-      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, marginBottom: 40, fontFamily: 'var(--font-body)' }}>
+      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, marginBottom: 40, fontFamily: 'var(--font-body)' }}>
         {system.descCN}
       </p>
 
@@ -86,17 +86,17 @@ export default function SystemView() {
                   <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>
                     {mission.nameCN}
                   </div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', letterSpacing: 1, marginBottom: 2 }}>
+                  <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', letterSpacing: 1, marginBottom: 2 }}>
                     {mission.name}
                   </div>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-body)', lineHeight: 1.6 }}>
+                  <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-body)', lineHeight: 1.6 }}>
                     {mission.descCN}
                   </div>
                 </div>
               </div>
               {!isLocked && (
                 <div style={{ marginTop: 12 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'rgba(255,255,255,0.3)', marginBottom: 4 }}>
                     <span>Discoveries</span>
                     <span>{ahaCount}/{mission.ahaCount}</span>
                   </div>

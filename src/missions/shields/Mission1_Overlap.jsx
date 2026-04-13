@@ -179,7 +179,7 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
         <NeonButton onClick={onBack} size="small">← Exit</NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-purple)', marginBottom: 6 }}>🛡️ MISSION 1</div>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-purple)', marginBottom: 6 }}>🛡️ MISSION 1</div>
       <NeonText as="h2" color="purple" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>护盾重叠区</NeonText>
 
       <p style={{ fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16, fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px' }}>
@@ -192,8 +192,8 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
             <div style={{ ...meterLabel, marginBottom: 8 }}>OVERLAP {taskIndex + 1}/{OVERLAP_TASKS.length}</div>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginBottom: 8, flexWrap: 'wrap' }}>
-              <span style={{ fontSize: 13, color: 'var(--neon-purple)', fontFamily: 'var(--font-display)', fontWeight: 700 }}>{task.line1.label}</span>
-              <span style={{ fontSize: 13, color: 'var(--neon-cyan)', fontFamily: 'var(--font-display)', fontWeight: 700 }}>{task.line2.label}</span>
+              <span style={{ fontSize: 14, color: 'var(--neon-purple)', fontFamily: 'var(--font-display)', fontWeight: 700 }}>{task.line1.label}</span>
+              <span style={{ fontSize: 14, color: 'var(--neon-cyan)', fontFamily: 'var(--font-display)', fontWeight: 700 }}>{task.line2.label}</span>
             </div>
 
             <TwoLineGrid line1={task.line1} line2={task.line2} guessX={guessX} guessY={guessY} solved={solved} />
@@ -204,7 +204,7 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
               {/* X slider */}
               <div style={{ marginBottom: 12 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>x =</span>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>x =</span>
                   <span style={{ fontSize: 'clamp(18px, 4vw, 24px)', fontWeight: 900, color: 'var(--neon-purple)', fontFamily: 'var(--font-display)' }}>{guessX}</span>
                 </div>
                 <input type="range" min={-2} max={8} step={1} value={guessX}
@@ -214,7 +214,7 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
               {/* Y slider */}
               <div style={{ marginBottom: 12 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>y =</span>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>y =</span>
                   <span style={{ fontSize: 'clamp(18px, 4vw, 24px)', fontWeight: 900, color: 'var(--neon-cyan)', fontFamily: 'var(--font-display)' }}>{guessY}</span>
                 </div>
                 <input type="range" min={-3} max={9} step={1} value={guessY}
@@ -232,7 +232,7 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
           )}
 
           {wrongFlash && (
-            <div style={{ color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2, marginBottom: 8, textAlign: 'center' }}>
+            <div style={{ color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2, marginBottom: 8, textAlign: 'center' }}>
               ⚠ SHIELD MISALIGNED — wrong intersection
             </div>
           )}
@@ -242,7 +242,7 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
       )}
 
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Overlaps Found</span><span>{tasksCompleted}/{OVERLAP_TASKS.length}</span>
         </div>
         <ProgressBar value={tasksCompleted} max={OVERLAP_TASKS.length} color="purple" />
@@ -250,7 +250,7 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
 
       {!completed && !solved && (
         <div className="glass-panel" style={{ marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%', fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
-          <div style={{ color: 'var(--neon-purple)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>💡 GUIDE</div>
+          <div style={{ color: 'var(--neon-purple)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>💡 GUIDE</div>
           {task?.hint}
         </div>
       )}
@@ -264,4 +264,4 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
   )
 }
 
-const meterLabel = { fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)' }
+const meterLabel = { fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)' }

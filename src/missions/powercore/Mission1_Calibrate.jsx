@@ -244,7 +244,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       </div>
 
       <div style={{
-        fontSize: 11, letterSpacing: 3, color: 'var(--neon-cyan)',
+        fontSize: 13, letterSpacing: 3, color: 'var(--neon-cyan)',
         marginBottom: 6,
       }}>
         ⚡ MISSION 1
@@ -282,7 +282,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Reactor Power</span>
           <span>{placed.length}/{FUEL_TASKS.length}</span>
         </div>
@@ -296,7 +296,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-cyan)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-cyan)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           Click and drag on the number line to position the fuel rod.

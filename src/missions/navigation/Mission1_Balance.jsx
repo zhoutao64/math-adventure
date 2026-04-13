@@ -108,7 +108,7 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
               {leftLabel}
             </div>
             <div style={{
-              fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 4,
+              fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4,
               fontFamily: 'var(--font-display)',
             }}>
               = {leftValue}
@@ -131,7 +131,7 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
               {rightLabel}
             </div>
             <div style={{
-              fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 4,
+              fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4,
               fontFamily: 'var(--font-display)',
             }}>
               = {rightValue}
@@ -142,7 +142,7 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
 
       {/* Balance status */}
       <div style={{
-        fontSize: 12, letterSpacing: 2, marginTop: 8,
+        fontSize: 14, letterSpacing: 2, marginTop: 8,
         color: isBalanced ? 'var(--neon-green)' : 'var(--neon-yellow)',
         transition: 'color 0.3s',
       }}>
@@ -240,7 +240,7 @@ export default function Mission1_Balance({ system, mission, onBack }) {
         </NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-yellow)', marginBottom: 6 }}>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-yellow)', marginBottom: 6 }}>
         🧭 MISSION 1
       </div>
 
@@ -289,7 +289,7 @@ export default function Mission1_Balance({ system, mission, onBack }) {
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               marginBottom: 8,
             }}>
-              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
+              <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
                 x =
               </span>
               <span style={{
@@ -316,7 +316,7 @@ export default function Mission1_Balance({ system, mission, onBack }) {
             />
             <div style={{
               display: 'flex', justifyContent: 'space-between',
-              fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 4,
+              fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 4,
             }}>
               <span>{task?.min || 0}</span>
               <span>{task?.max || 10}</span>
@@ -334,7 +334,7 @@ export default function Mission1_Balance({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: completed ? 0 : 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Thruster Calibration</span>
           <span>{tasksCompleted}/{BALANCE_TASKS.length}</span>
         </div>
@@ -348,7 +348,7 @@ export default function Mission1_Balance({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-yellow)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-yellow)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {task?.hint || 'Drag the slider to adjust x until the thrusters balance.'}

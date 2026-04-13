@@ -189,7 +189,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
         </NeonButton>
       </div>
 
-      <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
+      <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
         📡 MISSION 2
       </div>
 
@@ -247,7 +247,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 marginBottom: 8,
               }}>
-                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
+                <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', letterSpacing: 2 }}>
                   Slope =
                 </span>
                 <span style={{
@@ -274,7 +274,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
               />
               <div style={{
                 display: 'flex', justifyContent: 'space-between',
-                fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 4,
+                fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 4,
               }}>
                 <span>−3</span>
                 <span>0</span>
@@ -292,7 +292,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
           {/* Wrong feedback */}
           {wrongFlash && (
             <div style={{
-              color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2,
+              color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
               ⚠ ANTENNA MISALIGNED — adjust slope
@@ -310,7 +310,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
 
       {/* Progress */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px', marginTop: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Antennas Aligned</span>
           <span>{tasksCompleted}/{ANTENNA_TASKS.length}</span>
         </div>
@@ -324,7 +324,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {task?.hint || 'Calculate Rise ÷ Run between the two points to find the slope.'}
@@ -345,5 +345,5 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
 }
 
 const meterLabel = {
-  fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
+  fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)',
 }

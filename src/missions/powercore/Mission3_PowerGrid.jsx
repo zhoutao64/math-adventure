@@ -75,7 +75,7 @@ const resultStyle = {
 }
 
 const meterLabel = {
-  fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)', marginBottom: 4,
+  fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)', marginBottom: 4,
 }
 
 // ─── Commutative Puzzle ──────────────────────────────────────
@@ -132,7 +132,7 @@ function CommutativeTask({ task, onComplete }) {
       {bothRevealed && (
         <div style={{ textAlign: 'center', marginTop: 20 }}>
           <div style={{
-            color: 'var(--neon-green)', fontSize: 13, letterSpacing: 2, marginBottom: 12,
+            color: 'var(--neon-green)', fontSize: 14, letterSpacing: 2, marginBottom: 12,
             fontFamily: 'var(--font-body)',
           }}>
             Both circuits output the same power!
@@ -207,7 +207,7 @@ function AssociativeTask({ task, onComplete }) {
       {bothRevealed && (
         <div style={{ textAlign: 'center', marginTop: 20 }}>
           <div style={{
-            color: 'var(--neon-green)', fontSize: 13, letterSpacing: 2, marginBottom: 12,
+            color: 'var(--neon-green)', fontSize: 14, letterSpacing: 2, marginBottom: 12,
             fontFamily: 'var(--font-body)',
           }}>
             Regrouping doesn't change the output!
@@ -365,7 +365,7 @@ function DistributiveTask({ task, onComplete }) {
 
       <div style={{ textAlign: 'center', marginTop: 16 }}>
         <div style={{
-          color: 'var(--neon-green)', fontSize: 12, letterSpacing: 2, marginBottom: 12,
+          color: 'var(--neon-green)', fontSize: 14, letterSpacing: 2, marginBottom: 12,
           fontFamily: 'var(--font-body)', opacity: split ? 1 : 0.4,
           transition: 'opacity 0.3s',
         }}>
@@ -440,7 +440,7 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
       </div>
 
       <div style={{
-        fontSize: 11, letterSpacing: 3, color: 'var(--neon-cyan)',
+        fontSize: 13, letterSpacing: 3, color: 'var(--neon-cyan)',
         marginBottom: 6,
       }}>
         ⚡ MISSION 3
@@ -463,7 +463,7 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
       {/* Task label */}
       {!completed && (
         <div style={{
-          fontSize: 10, letterSpacing: 3, color: 'var(--neon-yellow)',
+          fontSize: 12, letterSpacing: 3, color: 'var(--neon-yellow)',
           marginBottom: 16, opacity: 0.7,
         }}>
           {task?.label} — SECTOR {taskIndex + 1}/{GRID_TASKS.length}
@@ -487,7 +487,7 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
 
       {/* Efficiency meter */}
       <div style={{ width: '100%', maxWidth: 400, padding: '0 8px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
           <span>Grid Efficiency</span>
           <span>{efficiency}%</span>
         </div>
@@ -501,7 +501,7 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
           fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
-          <div style={{ color: 'var(--neon-cyan)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>
+          <div style={{ color: 'var(--neon-cyan)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
             💡 GUIDE
           </div>
           {task?.type === 'commutative' && 'Compute both circuits and compare their outputs. Does the order matter?'}
