@@ -6,12 +6,12 @@ import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
 const FUEL_TASKS = [
-  { target: 0, label: '0', discovery: 'origin', title: 'The Origin', desc: 'Zero is the center of the number line — the reference point from which all numbers are measured. Every positive number has a negative mirror on the other side.' },
-  { target: -3, label: '-3', discovery: 'negatives', title: 'Negative Numbers', desc: 'Numbers to the left of zero are negative. They represent opposites — if +3 means 3 steps right, -3 means 3 steps left.' },
-  { target: 0.5, label: '1/2', discovery: 'fractions', title: 'Between Integers', desc: 'Between any two integers, there are infinitely many fractions. 1/2 sits exactly halfway between 0 and 1.' },
-  { target: Math.PI, label: 'π', discovery: 'pi', title: 'Pi Lives Here!', desc: 'π ≈ 3.14159... is an irrational number — its decimals never end and never repeat. It appears whenever circles are involved.' },
-  { target: Math.SQRT2, label: '√2', discovery: 'sqrt2', title: 'The Root of 2', desc: '√2 ≈ 1.414... is irrational. The ancient Greeks proved this — it cannot be written as a fraction. It is the diagonal of a unit square.' },
-  { target: -2.5, label: '-2.5', discovery: 'decimals', title: 'Decimal Negatives', desc: 'Negative decimals exist too! -2.5 is halfway between -2 and -3. Every point on the number line represents a real number.' },
+  { target: 0, startX: -4, label: '0', discovery: 'origin', title: 'The Origin', desc: 'Zero is the center of the number line — the reference point from which all numbers are measured. Every positive number has a negative mirror on the other side.' },
+  { target: -3, startX: 3, label: '-3', discovery: 'negatives', title: 'Negative Numbers', desc: 'Numbers to the left of zero are negative. They represent opposites — if +3 means 3 steps right, -3 means 3 steps left.' },
+  { target: 0.5, startX: -3, label: '1/2', discovery: 'fractions', title: 'Between Integers', desc: 'Between any two integers, there are infinitely many fractions. 1/2 sits exactly halfway between 0 and 1.' },
+  { target: Math.PI, startX: -2, label: 'π', discovery: 'pi', title: 'Pi Lives Here!', desc: 'π ≈ 3.14159... is an irrational number — its decimals never end and never repeat. It appears whenever circles are involved.' },
+  { target: Math.SQRT2, startX: -3, label: '√2', discovery: 'sqrt2', title: 'The Root of 2', desc: '√2 ≈ 1.414... is irrational. The ancient Greeks proved this — it cannot be written as a fraction. It is the diagonal of a unit square.' },
+  { target: -2.5, startX: 3, label: '-2.5', discovery: 'decimals', title: 'Decimal Negatives', desc: 'Negative decimals exist too! -2.5 is halfway between -2 and -3. Every point on the number line represents a real number.' },
 ]
 
 function useCanvasSize() {
@@ -45,7 +45,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
   const canvasRef = useRef(null)
   const [viewRange, setViewRange] = useState({ min: -6, max: 6 })
   const [currentTask, setCurrentTask] = useState(0)
-  const [fuelRodX, setFuelRodX] = useState(null)
+  const [fuelRodX, setFuelRodX] = useState(FUEL_TASKS[0].startX)
   const [isDragging, setIsDragging] = useState(false)
   const [placed, setPlaced] = useState([])
   const [ahaModal, setAhaModal] = useState(null)
@@ -131,17 +131,27 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       }
     }
 
-    // Target slot (pulsing dashed box)
+    // Target slot (highlighted dashed box)
     if (!placed.includes(currentTask) && task) {
       const tx = xToCanvas(task.target)
-      ctx.setLineDash([4, 4])
-      ctx.strokeStyle = 'rgba(0,240,255,0.4)'
-      ctx.lineWidth = 1.5
-      ctx.strokeRect(tx - m.slotW / 2, cy - m.slotH / 2, m.slotW, m.slotH)
+      const slotW = m.slotW * 1.3
+      const slotH = m.slotH * 1.3
+
+      // Soft glow behind slot
+      const slotGlow = ctx.createRadialGradient(tx, cy, 0, tx, cy, slotH)
+      slotGlow.addColorStop(0, 'rgba(57,255,20,0.1)')
+      slotGlow.addColorStop(1, 'rgba(57,255,20,0)')
+      ctx.fillStyle = slotGlow
+      ctx.fillRect(tx - slotH, cy - slotH, slotH * 2, slotH * 2)
+
+      ctx.setLineDash([6, 4])
+      ctx.strokeStyle = 'rgba(57,255,20,0.6)'
+      ctx.lineWidth = 2
+      ctx.strokeRect(tx - slotW / 2, cy - slotH / 2, slotW, slotH)
       ctx.setLineDash([])
-      ctx.fillStyle = 'rgba(0,240,255,0.5)'
+      ctx.fillStyle = 'rgba(57,255,20,0.7)'
       ctx.font = m.slotFont
-      ctx.fillText('?', tx, cy - m.slotH / 2 - 8)
+      ctx.fillText('?', tx, cy + 5)
     }
 
     // Placed fuel rods
@@ -167,27 +177,48 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       ctx.fillText(t.label, fx, cy - m.rodLabelY)
     })
 
-    // Dragging fuel rod
-    if (isDragging && fuelRodX !== null) {
+    // Active fuel rod (always visible when task not placed)
+    if (!placed.includes(currentTask) && fuelRodX !== null) {
       const fx = xToCanvas(fuelRodX)
-      ctx.fillStyle = 'rgba(0,240,255,0.7)'
-      ctx.fillRect(fx - m.rodHW, cy - m.rodHH, m.rodHW * 2, m.rodHH * 2)
-      ctx.strokeStyle = 'rgba(0,240,255,0.9)'
-      ctx.lineWidth = 1.5
-      ctx.strokeRect(fx - m.rodHW, cy - m.rodHH, m.rodHW * 2, m.rodHH * 2)
-      // Show value
-      ctx.fillStyle = 'rgba(0,240,255,0.9)'
+      const rodW = m.rodHW * 2.5
+      const rodH = m.rodHH * 1.8
+
+      // Glow behind rod
+      const glow = ctx.createRadialGradient(fx, cy, 0, fx, cy, rodH * 1.5)
+      glow.addColorStop(0, 'rgba(0,240,255,0.15)')
+      glow.addColorStop(1, 'rgba(0,240,255,0)')
+      ctx.fillStyle = glow
+      ctx.fillRect(fx - rodH * 1.5, cy - rodH * 1.5, rodH * 3, rodH * 3)
+
+      // Rod body
+      ctx.fillStyle = isDragging ? 'rgba(0,240,255,0.85)' : 'rgba(0,240,255,0.6)'
+      ctx.fillRect(fx - rodW, cy - rodH, rodW * 2, rodH * 2)
+      ctx.strokeStyle = 'rgba(0,240,255,1)'
+      ctx.lineWidth = 2
+      ctx.strokeRect(fx - rodW, cy - rodH, rodW * 2, rodH * 2)
+
+      // Label on top
+      ctx.fillStyle = '#fff'
       ctx.font = m.dragFont
       ctx.textAlign = 'center'
-      ctx.fillText(fuelRodX.toFixed(2), fx, cy - m.rodLabelY)
+      ctx.fillText(task.label, fx, cy - rodH - 8)
+
+      // Position value below
+      ctx.fillStyle = 'rgba(0,240,255,0.9)'
+      ctx.font = m.slotFont
+      ctx.fillText(fuelRodX.toFixed(2), fx, cy + rodH + 16)
+
+      // "← DRAG →" hint when not dragging
+      if (!isDragging) {
+        ctx.fillStyle = 'rgba(0,240,255,0.5)'
+        ctx.font = `${Math.max(9, Math.round(10 * scale))}px Orbitron`
+        ctx.fillText('← DRAG →', fx, cy + 4)
+      }
     }
   }, [viewRange, canvasW, canvasH, dpr, currentTask, placed, isDragging, fuelRodX, xToCanvas, task, m])
 
   function handlePointerDown(e) {
     if (completed || placed.includes(currentTask)) return
-    const rect = canvasRef.current.getBoundingClientRect()
-    const px = (e.clientX - rect.left) * (canvasW / rect.width)
-    setFuelRodX(canvasToX(px))
     setIsDragging(true)
     canvasRef.current.setPointerCapture(e.pointerId)
   }
@@ -205,23 +236,28 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
     if (!isDragging || fuelRodX === null) return
     setIsDragging(false)
     if (task && Math.abs(fuelRodX - task.target) < m.snapThreshold) {
+      setFuelRodX(task.target)
       setPlaced(prev => [...prev, currentTask])
       if (!mState.ahaMoments.includes(task.discovery)) {
         dispatch({ type: 'RECORD_AHA', systemId: 'powercore', missionId: '1', ahaId: task.discovery })
         setAhaModal(task)
       } else if (currentTask < FUEL_TASKS.length - 1) {
-        setCurrentTask(prev => prev + 1)
+        advanceToNextTask(currentTask + 1)
       } else {
         handleComplete()
       }
     }
-    setFuelRodX(null)
+  }
+
+  function advanceToNextTask(nextIdx) {
+    setCurrentTask(nextIdx)
+    setFuelRodX(FUEL_TASKS[nextIdx].startX)
   }
 
   function handleAhaClose() {
     setAhaModal(null)
     if (currentTask < FUEL_TASKS.length - 1) {
-      setCurrentTask(prev => prev + 1)
+      advanceToNextTask(currentTask + 1)
     } else {
       handleComplete()
     }
@@ -281,7 +317,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
-          onPointerLeave={() => { setIsDragging(false); setFuelRodX(null) }}
+          onPointerLeave={() => { setIsDragging(false) }}
         />
       </div>
 
