@@ -255,7 +255,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
       </NeonText>
 
       <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
-        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.75)', marginBottom: 6 }}>
           🎯 OBJECTIVE
         </div>
         <p style={{
