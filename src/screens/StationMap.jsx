@@ -75,8 +75,14 @@ export default function StationMap() {
               }}>
                 {sys.name}
               </div>
-              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 4 }}>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
                 {sys.nameCN}
+              </div>
+              <div style={{
+                fontSize: 12, color: `var(--neon-${sys.color})`, opacity: 0.7,
+                marginBottom: 8, letterSpacing: 1, fontFamily: 'var(--font-body)',
+              }}>
+                {sys.mathDesc}
               </div>
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', letterSpacing: 1 }}>
                 {isLocked ? 'LOCKED' : isComplete ? '✓ COMPLETE' : `${completedCount}/${sys.missions.length} missions`}

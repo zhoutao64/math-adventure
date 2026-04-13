@@ -7,6 +7,7 @@ export const SYSTEMS = [
     color: 'cyan',
     description: 'Restore power to the station',
     descCN: '恢复太空站能源供应',
+    mathDesc: '数轴与运算',
     missions: [
       {
         id: '1',
@@ -45,6 +46,7 @@ export const SYSTEMS = [
     color: 'yellow',
     description: 'Plot courses through the stars',
     descCN: '规划星际航线',
+    mathDesc: '方程入门',
     missions: [
       {
         id: '1',
@@ -83,6 +85,7 @@ export const SYSTEMS = [
     color: 'pink',
     description: 'Restore communication signals',
     descCN: '恢复通信信号',
+    mathDesc: '函数与斜率',
     missions: [
       {
         id: '1',
@@ -121,6 +124,7 @@ export const SYSTEMS = [
     color: 'purple',
     description: 'Reactivate the defense shields',
     descCN: '重新激活防御护盾',
+    mathDesc: '方程组',
     missions: [
       {
         id: '1',
@@ -159,6 +163,7 @@ export const SYSTEMS = [
     color: 'green',
     description: 'Prepare for departure',
     descCN: '准备启航',
+    mathDesc: '二次函数',
     missions: [
       {
         id: '1',
