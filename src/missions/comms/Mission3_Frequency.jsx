@@ -5,7 +5,7 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// ─── Task Data ───────────────────────────────────────────────
+// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
 const FREQ_TASKS = [
   {
     equation: 'y = x + 2',
@@ -17,16 +17,16 @@ const FREQ_TASKS = [
     ahaDesc: 'Every linear function can be written as y = mx + b, where m is the slope (steepness) and b is the y-intercept (where the line crosses the y-axis). Here: m = 1, b = 2, so y = x + 2!',
   },
   {
-    equation: 'y = 2x − 1',
+    equation: 'y = 2x â 1',
     targetM: 2, targetB: -1,
     tablePairs: [[0, -1], [1, 1], [2, 3]],
-    hint: 'b is negative — the line starts below the x-axis at y = −1. The slope m = 2 makes it steep.',
+    hint: 'b is negative â the line starts below the x-axis at y = â1. The slope m = 2 makes it steep.',
     ahaId: 'intercept_meaning',
     ahaTitle: 'Meaning of Intercept',
-    ahaDesc: 'b is where the line crosses the y-axis — the output when x = 0. A negative b means it starts below the x-axis. For y = 2x − 1: when x = 0, y = −1.',
+    ahaDesc: 'b is where the line crosses the y-axis â the output when x = 0. A negative b means it starts below the x-axis. For y = 2x â 1: when x = 0, y = â1.',
   },
   {
-    equation: 'y = −x + 3',
+    equation: 'y = âx + 3',
     targetM: -1, targetB: 3,
     tablePairs: [[0, 3], [1, 2], [3, 0]],
     hint: 'Negative slope means the line goes down. It crosses the y-axis at 3.',
@@ -39,27 +39,27 @@ const FREQ_TASKS = [
     hint: 'This line passes through the origin (b = 0). Gentle slope of 0.5.',
     ahaId: 'zero_intercept',
     ahaTitle: 'Through the Origin',
-    ahaDesc: 'When b = 0, the line passes through the origin (0, 0). The equation simplifies to y = mx — no constant term needed. Every proportional relationship goes through the origin!',
+    ahaDesc: 'When b = 0, the line passes through the origin (0, 0). The equation simplifies to y = mx â no constant term needed. Every proportional relationship goes through the origin!',
   },
   {
-    equation: 'y = −2x + 4',
+    equation: 'y = â2x + 4',
     targetM: -2, targetB: 4,
     tablePairs: [[0, 4], [1, 2], [2, 0]],
-    hint: 'Steep negative slope (−2). Crosses y-axis at 4. Falls 2 units per 1 unit of x.',
+    hint: 'Steep negative slope (â2). Crosses y-axis at 4. Falls 2 units per 1 unit of x.',
     ahaId: null,
   },
   {
-    equation: 'y = 1.5x − 2',
+    equation: 'y = 1.5x â 2',
     targetM: 1.5, targetB: -2,
-    tablePairs: null, // No table — graph only!
+    tablePairs: null, // No table â graph only!
     hint: 'No table this time! Read the graph: where does it cross the y-axis? How steep is it?',
     ahaId: 'graph_reading',
     ahaTitle: 'Reading Graphs',
-    ahaDesc: 'You can determine m and b directly from a graph: b is where it crosses the y-axis, m is the steepness (rise ÷ run between any two points). Master this skill and you can read any linear function!',
+    ahaDesc: 'You can determine m and b directly from a graph: b is where it crosses the y-axis, m is the steepness (rise Ã· run between any two points). Master this skill and you can read any linear function!',
   },
 ]
 
-// ─── Coordinate Grid with Lines ──────────────────────────────
+// âââ Coordinate Grid with Lines ââââââââââââââââââââââââââââââ
 function LineGrid({ targetM, targetB, userM, userB, tablePairs, solved }) {
   const W = 320, H = 280
   // Grid: x from -4 to 6, y from -5 to 7
@@ -125,7 +125,7 @@ function LineGrid({ targetM, targetB, userM, userB, tablePairs, solved }) {
         {solved && (
           <text x={px(gx2) - 10} y={py(targetM * gx2 + targetB) - 10}
             fill="var(--neon-green)" fontSize={14} textAnchor="end" fontFamily="var(--font-display)">
-            {`y = ${targetM === 1 ? '' : targetM === -1 ? '−' : targetM}x${targetB > 0 ? ` + ${targetB}` : targetB < 0 ? ` − ${Math.abs(targetB)}` : ''}`}
+            {`y = ${targetM === 1 ? '' : targetM === -1 ? 'â' : targetM}x${targetB > 0 ? ` + ${targetB}` : targetB < 0 ? ` â ${Math.abs(targetB)}` : ''}`}
           </text>
         )}
       </svg>
@@ -158,7 +158,7 @@ function LineGrid({ targetM, targetB, userM, userB, tablePairs, solved }) {
   )
 }
 
-// ─── Component ───────────────────────────────────────────────
+// âââ Component âââââââââââââââââââââââââââââââââââââââââââââââ
 export default function Mission3_Frequency({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -228,27 +228,32 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          ← Exit
+          â Exit
         </NeonButton>
       </div>
 
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
-        📡 MISSION 3
+        ð¡ MISSION 3
       </div>
 
       <NeonText as="h2" color="pink" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        频率调谐
+        é¢çè°è°
       </NeonText>
 
-      <p style={{
-        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
-      }}>
-        {completed
-          ? '🎉 All frequencies tuned! Comms array fully online.'
-          : 'Set slope (m) and intercept (b) to match the target frequency.'
-        }
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed
+            ? 'ð All frequencies tuned! Comms array fully online.'
+            : 'Set slope (m) and intercept (b) to match the target frequency.'
+          }
+        </p>
+      </div>
 
       {!completed && (
         <>
@@ -258,7 +263,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
             marginBottom: 16,
           }}>
             <div style={{ ...meterLabel, marginBottom: 8 }}>
-              CHANNEL {taskIndex + 1}/{FREQ_TASKS.length} — TUNING
+              CHANNEL {taskIndex + 1}/{FREQ_TASKS.length} â TUNING
             </div>
 
             {/* Reference table (if available) */}
@@ -332,7 +337,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
                   display: 'flex', justifyContent: 'space-between',
                   fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 2,
                 }}>
-                  <span>−3</span><span>0</span><span>3</span>
+                  <span>â3</span><span>0</span><span>3</span>
                 </div>
               </div>
 
@@ -365,7 +370,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
                   display: 'flex', justifyContent: 'space-between',
                   fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 2,
                 }}>
-                  <span>−5</span><span>0</span><span>5</span>
+                  <span>â5</span><span>0</span><span>5</span>
                 </div>
               </div>
 
@@ -377,7 +382,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
                 letterSpacing: 1,
                 animation: wrongFlash ? 'shake 0.4s' : 'none',
               }}>
-                y = {userM === 0 ? '' : userM === 1 ? '' : userM === -1 ? '−' : userM}{userM !== 0 ? 'x' : ''}{userB > 0 ? ` + ${userB}` : userB < 0 ? ` − ${Math.abs(userB)}` : (userM === 0 ? '0' : '')}
+                y = {userM === 0 ? '' : userM === 1 ? '' : userM === -1 ? 'â' : userM}{userM !== 0 ? 'x' : ''}{userB > 0 ? ` + ${userB}` : userB < 0 ? ` â ${Math.abs(userB)}` : (userM === 0 ? '0' : '')}
               </div>
 
               <div style={{ textAlign: 'center' }}>
@@ -394,14 +399,14 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
               color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
-              ⚠ FREQUENCY MISMATCH — adjust m and b
+              â  FREQUENCY MISMATCH â adjust m and b
             </div>
           )}
 
           {/* Next button */}
           {solved && (
             <NeonButton onClick={handleNext} color="green" size="small">
-              {taskIndex < FREQ_TASKS.length - 1 ? 'Next Channel →' : 'Complete →'}
+              {taskIndex < FREQ_TASKS.length - 1 ? 'Next Channel â' : 'Complete â'}
             </NeonButton>
           )}
         </>
@@ -424,7 +429,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            💡 GUIDE
+            ð¡ GUIDE
           </div>
           {task?.hint || 'Adjust slope (m) and intercept (b) so your line matches the target.'}
         </div>
@@ -432,7 +437,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete →
+          Mission Complete â
         </NeonButton>
       )}
 

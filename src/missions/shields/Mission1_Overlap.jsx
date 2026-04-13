@@ -182,9 +182,17 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-purple)', marginBottom: 6 }}>🛡️ MISSION 1</div>
       <NeonText as="h2" color="purple" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>护盾重叠区</NeonText>
 
-      <p style={{ fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16, fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px' }}>
-        {completed ? '🎉 Shield overlap zones identified! Layer 1 online.' : 'Find the intersection point of the two shield lines.'}
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed ? '🎉 Shield overlap zones identified! Layer 1 online.' : 'Find the intersection point of the two shield lines.'}
+        </p>
+      </div>
 
       {!completed && (
         <>

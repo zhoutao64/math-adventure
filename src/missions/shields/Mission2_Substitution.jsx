@@ -275,9 +275,17 @@ export default function Mission2_Substitution({ system, mission, onBack }) {
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-purple)', marginBottom: 6 }}>🛡️ MISSION 2</div>
       <NeonText as="h2" color="purple" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>频率替换</NeonText>
 
-      <p style={{ fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16, fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px' }}>
-        {completed ? '🎉 Substitution mastered! Shield layer 2 online.' : 'Use substitution to solve the system of equations.'}
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed ? '🎉 Substitution mastered! Shield layer 2 online.' : 'Use substitution to solve the system of equations.'}
+        </p>
+      </div>
 
       {!completed && !showResult && (
         <>

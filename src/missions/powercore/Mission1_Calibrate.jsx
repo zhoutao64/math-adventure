@@ -6,11 +6,11 @@ import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
 const FUEL_TASKS = [
-  { target: 0, label: '0', discovery: 'origin', title: 'The Origin', desc: 'Zero is the center of the number line — the reference point from which all numbers are measured. Every positive number has a negative mirror on the other side.' },
-  { target: -3, label: '-3', discovery: 'negatives', title: 'Negative Numbers', desc: 'Numbers to the left of zero are negative. They represent opposites — if +3 means 3 steps right, -3 means 3 steps left.' },
+  { target: 0, label: '0', discovery: 'origin', title: 'The Origin', desc: 'Zero is the center of the number line â the reference point from which all numbers are measured. Every positive number has a negative mirror on the other side.' },
+  { target: -3, label: '-3', discovery: 'negatives', title: 'Negative Numbers', desc: 'Numbers to the left of zero are negative. They represent opposites â if +3 means 3 steps right, -3 means 3 steps left.' },
   { target: 0.5, label: '1/2', discovery: 'fractions', title: 'Between Integers', desc: 'Between any two integers, there are infinitely many fractions. 1/2 sits exactly halfway between 0 and 1.' },
-  { target: Math.PI, label: 'π', discovery: 'pi', title: 'Pi Lives Here!', desc: 'π ≈ 3.14159... is an irrational number — its decimals never end and never repeat. It appears whenever circles are involved.' },
-  { target: Math.SQRT2, label: '√2', discovery: 'sqrt2', title: 'The Root of 2', desc: '√2 ≈ 1.414... is irrational. The ancient Greeks proved this — it cannot be written as a fraction. It is the diagonal of a unit square.' },
+  { target: Math.PI, label: 'Ï', discovery: 'pi', title: 'Pi Lives Here!', desc: 'Ï â 3.14159... is an irrational number â its decimals never end and never repeat. It appears whenever circles are involved.' },
+  { target: Math.SQRT2, label: 'â2', discovery: 'sqrt2', title: 'The Root of 2', desc: 'â2 â 1.414... is irrational. The ancient Greeks proved this â it cannot be written as a fraction. It is the diagonal of a unit square.' },
   { target: -2.5, label: '-2.5', discovery: 'decimals', title: 'Decimal Negatives', desc: 'Negative decimals exist too! -2.5 is halfway between -2 and -3. Every point on the number line represents a real number.' },
 ]
 
@@ -239,7 +239,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          ← Exit
+          â Exit
         </NeonButton>
       </div>
 
@@ -247,22 +247,27 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
         fontSize: 13, letterSpacing: 3, color: 'var(--neon-cyan)',
         marginBottom: 6,
       }}>
-        ⚡ MISSION 1
+        â¡ MISSION 1
       </div>
 
       <NeonText as="h2" color="cyan" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        校准反应堆
+        æ ¡åååºå 
       </NeonText>
 
-      <p style={{
-        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 20,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
-      }}>
-        {completed
-          ? '🎉 Reactor online! All fuel rods calibrated.'
-          : `Drag the fuel rod to coordinate ${task?.label || '?'} to activate this cell.`
-        }
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed
+            ? 'ð Reactor online! All fuel rods calibrated.'
+            : `Drag the fuel rod to coordinate ${task?.label || '?'} to activate this cell.`
+          }
+        </p>
+      </div>
 
       {/* Canvas */}
       <div className="glass-panel" style={{ padding: 'clamp(8px, 2vw, 16px)', marginBottom: 20, maxWidth: '100%' }}>
@@ -297,7 +302,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-cyan)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            💡 GUIDE
+            ð¡ GUIDE
           </div>
           Click and drag on the number line to position the fuel rod.
           Find the position marked <strong style={{ color: 'var(--neon-cyan)' }}>{task?.label}</strong> on the number line.
@@ -306,7 +311,7 @@ export default function Mission1_Calibrate({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete →
+          Mission Complete â
         </NeonButton>
       )}
 

@@ -5,31 +5,31 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// ─── Task Data ───────────────────────────────────────────────
+// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
 const ANTENNA_TASKS = [
   {
     point1: [0, 1], point2: [2, 5],
     answer: 2,
     rise: 4, run: 2,
-    hint: 'Rise = 5 − 1 = 4, Run = 2 − 0 = 2. Slope = Rise ÷ Run.',
+    hint: 'Rise = 5 â 1 = 4, Run = 2 â 0 = 2. Slope = Rise Ã· Run.',
     ahaId: 'slope_ratio',
     ahaTitle: 'Slope is a Ratio',
-    ahaDesc: 'Slope = Rise ÷ Run. It measures how steep a line is — how much y changes per unit of x. Here: 4 ÷ 2 = 2, so the line rises 2 units for every 1 unit across!',
+    ahaDesc: 'Slope = Rise Ã· Run. It measures how steep a line is â how much y changes per unit of x. Here: 4 Ã· 2 = 2, so the line rises 2 units for every 1 unit across!',
   },
   {
     point1: [1, 6], point2: [3, 2],
     answer: -2,
     rise: -4, run: 2,
-    hint: 'Rise = 2 − 6 = −4 (going DOWN). Run = 3 − 1 = 2. A negative rise means negative slope.',
+    hint: 'Rise = 2 â 6 = â4 (going DOWN). Run = 3 â 1 = 2. A negative rise means negative slope.',
     ahaId: 'negative_slope',
     ahaTitle: 'Negative Slope',
-    ahaDesc: 'A negative slope means the line goes DOWN from left to right. Rise = −4, Run = 2, so slope = −4 ÷ 2 = −2. The signal is descending!',
+    ahaDesc: 'A negative slope means the line goes DOWN from left to right. Rise = â4, Run = 2, so slope = â4 Ã· 2 = â2. The signal is descending!',
   },
   {
     point1: [0, 3], point2: [4, 3],
     answer: 0,
     rise: 0, run: 4,
-    hint: 'Rise = 3 − 3 = 0. When there is no rise, the line is flat.',
+    hint: 'Rise = 3 â 3 = 0. When there is no rise, the line is flat.',
     ahaId: 'zero_slope',
     ahaTitle: 'Zero Slope',
     ahaDesc: 'When rise = 0, slope = 0 and the line is perfectly horizontal. No change in signal! A flat line means the output stays the same no matter the input.',
@@ -38,21 +38,21 @@ const ANTENNA_TASKS = [
     point1: [1, 0], point2: [3, 3],
     answer: 1.5,
     rise: 3, run: 2,
-    hint: 'Rise = 3, Run = 2. Slope = 3 ÷ 2 = 1.5. Slopes don\'t have to be whole numbers!',
+    hint: 'Rise = 3, Run = 2. Slope = 3 Ã· 2 = 1.5. Slopes don\'t have to be whole numbers!',
     ahaId: 'fractional_slope',
     ahaTitle: 'Fractional Slope',
-    ahaDesc: 'Slopes can be fractions like 3/2 = 1.5. This means the line rises 3 units for every 2 units across. Not every slope is a nice whole number — and that\'s okay!',
+    ahaDesc: 'Slopes can be fractions like 3/2 = 1.5. This means the line rises 3 units for every 2 units across. Not every slope is a nice whole number â and that\'s okay!',
   },
   {
     point1: [0, 4], point2: [2, 1],
     answer: -1.5,
     rise: -3, run: 2,
-    hint: 'Rise = 1 − 4 = −3, Run = 2 − 0 = 2. Slope = −3 ÷ 2 = −1.5.',
+    hint: 'Rise = 1 â 4 = â3, Run = 2 â 0 = 2. Slope = â3 Ã· 2 = â1.5.',
     ahaId: null,
   },
 ]
 
-// ─── Slope Visual ────────────────────────────────────────────
+// âââ Slope Visual ââââââââââââââââââââââââââââââââââââââââââââ
 function SlopeGrid({ point1, point2, rise, run, userSlope, solved }) {
   // Grid bounds: x: -1 to 6, y: -2 to 8
   const gx1 = -1, gx2 = 6, gy1 = -2, gy2 = 8
@@ -119,7 +119,7 @@ function SlopeGrid({ point1, point2, rise, run, userSlope, solved }) {
   )
 }
 
-// ─── Component ───────────────────────────────────────────────
+// âââ Component âââââââââââââââââââââââââââââââââââââââââââââââ
 export default function Mission2_Antenna({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -185,27 +185,32 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          ← Exit
+          â Exit
         </NeonButton>
       </div>
 
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
-        📡 MISSION 2
+        ð¡ MISSION 2
       </div>
 
       <NeonText as="h2" color="pink" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        天线对准
+        å¤©çº¿å¯¹å
       </NeonText>
 
-      <p style={{
-        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
-      }}>
-        {completed
-          ? '🎉 All antennas aligned! Signal reception optimal.'
-          : 'Calculate the slope between two points to align the antenna.'
-        }
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed
+            ? 'ð All antennas aligned! Signal reception optimal.'
+            : 'Calculate the slope between two points to align the antenna.'
+          }
+        </p>
+      </div>
 
       {!completed && (
         <>
@@ -215,7 +220,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
             marginBottom: 20,
           }}>
             <div style={{ ...meterLabel, marginBottom: 8 }}>
-              ANTENNA {taskIndex + 1}/{ANTENNA_TASKS.length} — ALIGNING
+              ANTENNA {taskIndex + 1}/{ANTENNA_TASKS.length} â ALIGNING
             </div>
 
             <SlopeGrid
@@ -235,7 +240,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
                 color: 'var(--neon-green)', fontFamily: 'var(--font-display)',
                 letterSpacing: 1,
               }}>
-                Slope = {task.rise} ÷ {task.run} = {task.answer}
+                Slope = {task.rise} Ã· {task.run} = {task.answer}
               </div>
             )}
           </div>
@@ -276,7 +281,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
                 display: 'flex', justifyContent: 'space-between',
                 fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 4,
               }}>
-                <span>−3</span>
+                <span>â3</span>
                 <span>0</span>
                 <span>3</span>
               </div>
@@ -295,14 +300,14 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
               color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
-              ⚠ ANTENNA MISALIGNED — adjust slope
+              â  ANTENNA MISALIGNED â adjust slope
             </div>
           )}
 
           {/* Next button */}
           {solved && (
             <NeonButton onClick={handleNext} color="green" size="small">
-              {taskIndex < ANTENNA_TASKS.length - 1 ? 'Next Antenna →' : 'Complete →'}
+              {taskIndex < ANTENNA_TASKS.length - 1 ? 'Next Antenna â' : 'Complete â'}
             </NeonButton>
           )}
         </>
@@ -325,15 +330,15 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            💡 GUIDE
+            ð¡ GUIDE
           </div>
-          {task?.hint || 'Calculate Rise ÷ Run between the two points to find the slope.'}
+          {task?.hint || 'Calculate Rise Ã· Run between the two points to find the slope.'}
         </div>
       )}
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete →
+          Mission Complete â
         </NeonButton>
       )}
 

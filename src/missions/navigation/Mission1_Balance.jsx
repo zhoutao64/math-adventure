@@ -5,7 +5,7 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// ─── Task Data ───────────────────────────────────────────────
+// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
 const BALANCE_TASKS = [
   {
     equation: 'x = ?',
@@ -14,7 +14,7 @@ const BALANCE_TASKS = [
     hint: 'The left thruster shows x. What value balances with 5?',
     ahaId: 'equation_concept',
     ahaTitle: 'The Equation',
-    ahaDesc: 'An equation means two sides are equal. When x = 5, both thrusters output the same power. That\'s what "=" means — perfect balance!',
+    ahaDesc: 'An equation means two sides are equal. When x = 5, both thrusters output the same power. That\'s what "=" means â perfect balance!',
   },
   {
     equation: 'x + 2 = 7',
@@ -24,13 +24,13 @@ const BALANCE_TASKS = [
     ahaId: null,
   },
   {
-    equation: '3 = x − 1',
-    leftLabel: '3', rightLabel: 'x − 1',
+    equation: '3 = x â 1',
+    leftLabel: '3', rightLabel: 'x â 1',
     answer: 4, min: 0, max: 10,
     hint: 'x minus 1 must equal 3. What minus 1 gives 3?',
     ahaId: 'variable',
     ahaTitle: 'The Unknown Variable',
-    ahaDesc: 'x is not a scary symbol — it\'s just a number we haven\'t found yet. Every equation is a puzzle: find the value of x that makes both sides equal.',
+    ahaDesc: 'x is not a scary symbol â it\'s just a number we haven\'t found yet. Every equation is a puzzle: find the value of x that makes both sides equal.',
   },
   {
     equation: 'x + 4 = 10',
@@ -38,8 +38,8 @@ const BALANCE_TASKS = [
     answer: 6, min: 0, max: 15,
     hint: 'What number plus 4 equals 10? Think: 10 minus 4.',
     ahaId: 'inverse_add',
-    ahaTitle: 'Inverse Operations — Addition',
-    ahaDesc: 'To undo addition, use subtraction! If x + 4 = 10, then x = 10 − 4. Every operation has an opposite that cancels it out.',
+    ahaTitle: 'Inverse Operations â Addition',
+    ahaDesc: 'To undo addition, use subtraction! If x + 4 = 10, then x = 10 â 4. Every operation has an opposite that cancels it out.',
   },
   {
     equation: '2x = 8',
@@ -54,12 +54,12 @@ const BALANCE_TASKS = [
     answer: 4, min: 0, max: 10,
     hint: '3 times what equals 12?',
     ahaId: 'inverse_mult',
-    ahaTitle: 'Inverse Operations — Multiplication',
-    ahaDesc: 'To undo multiplication, use division! If 3x = 12, then x = 12 ÷ 3. Addition ↔ Subtraction, Multiplication ↔ Division — always in pairs.',
+    ahaTitle: 'Inverse Operations â Multiplication',
+    ahaDesc: 'To undo multiplication, use division! If 3x = 12, then x = 12 Ã· 3. Addition â Subtraction, Multiplication â Division â always in pairs.',
   },
 ]
 
-// ─── Balance Beam Visual ─────────────────────────────────────
+// âââ Balance Beam Visual âââââââââââââââââââââââââââââââââââââ
 function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
   // Calculate tilt: negative = left heavy, positive = right heavy
   const diff = leftValue - rightValue
@@ -146,13 +146,13 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
         color: isBalanced ? 'var(--neon-green)' : 'var(--neon-yellow)',
         transition: 'color 0.3s',
       }}>
-        {isBalanced ? '✓ BALANCED' : diff > 0 ? '← LEFT HEAVY' : '→ RIGHT HEAVY'}
+        {isBalanced ? 'â BALANCED' : diff > 0 ? 'â LEFT HEAVY' : 'â RIGHT HEAVY'}
       </div>
     </div>
   )
 }
 
-// ─── Component ───────────────────────────────────────────────
+// âââ Component âââââââââââââââââââââââââââââââââââââââââââââââ
 export default function Mission1_Balance({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -174,12 +174,12 @@ export default function Mission1_Balance({ system, mission, onBack }) {
       const n = parseInt(eq.match(/x \+ (\d+)/)[1])
       return { left: g + n, right: t.answer + n }
     }
-    if (eq.startsWith('x − ') || eq.match(/x − \d+/)) {
-      const n = parseInt(eq.match(/x − (\d+)/)[1])
+    if (eq.startsWith('x â ') || eq.match(/x â \d+/)) {
+      const n = parseInt(eq.match(/x â (\d+)/)[1])
       return { left: g - n, right: t.answer - n }
     }
-    if (eq.match(/^\d+ = x − \d+$/)) {
-      const parts = eq.match(/^(\d+) = x − (\d+)$/)
+    if (eq.match(/^\d+ = x â \d+$/)) {
+      const parts = eq.match(/^(\d+) = x â (\d+)$/)
       return { left: parseInt(parts[1]), right: g - parseInt(parts[2]) }
     }
     if (eq.match(/^\d+x = \d+$/)) {
@@ -236,27 +236,32 @@ export default function Mission1_Balance({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          ← Exit
+          â Exit
         </NeonButton>
       </div>
 
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-yellow)', marginBottom: 6 }}>
-        🧭 MISSION 1
+        ð§­ MISSION 1
       </div>
 
       <NeonText as="h2" color="yellow" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        平衡推进器
+        å¹³è¡¡æ¨è¿å¨
       </NeonText>
 
-      <p style={{
-        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
-      }}>
-        {completed
-          ? '🎉 All thrusters balanced! Navigation online.'
-          : `Find the value of x that balances the equation.`
-        }
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed
+            ? 'ð All thrusters balanced! Navigation online.'
+            : `Find the value of x that balances the equation.`
+          }
+        </p>
+      </div>
 
       {!completed && (
         <>
@@ -326,7 +331,7 @@ export default function Mission1_Balance({ system, mission, onBack }) {
           {/* Confirm button */}
           {isBalanced && !confirmed && (
             <NeonButton onClick={handleConfirm} color="green" size="small">
-              Confirm Balance ✓
+              Confirm Balance â
             </NeonButton>
           )}
         </>
@@ -349,7 +354,7 @@ export default function Mission1_Balance({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-yellow)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            💡 GUIDE
+            ð¡ GUIDE
           </div>
           {task?.hint || 'Drag the slider to adjust x until the thrusters balance.'}
         </div>
@@ -357,7 +362,7 @@ export default function Mission1_Balance({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete →
+          Mission Complete â
         </NeonButton>
       )}
 

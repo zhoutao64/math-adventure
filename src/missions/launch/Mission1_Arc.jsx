@@ -5,7 +5,7 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// ─── Task Data ───────────────────────────────────────────────
+// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
 const ARC_TASKS = [
   {
     label: 'y = x\u00B2',
@@ -47,7 +47,7 @@ const ARC_TASKS = [
   },
 ]
 
-// ─── SVG Coordinate Grid ─────────────────────────────────────
+// âââ SVG Coordinate Grid âââââââââââââââââââââââââââââââââââââ
 const GX1 = -5, GX2 = 7, GY1 = -5, GY2 = 7
 const SVG_W = 480, SVG_H = 480
 const PAD = 32
@@ -140,7 +140,7 @@ function CoordinateGraph({ task, userA, userH, userK }) {
   )
 }
 
-// ─── Format formula string ───────────────────────────────────
+// âââ Format formula string âââââââââââââââââââââââââââââââââââ
 function formatFormula(a, h, k) {
   const aStr = a === 1 ? '' : a === -1 ? '\u2212' : `${a}`
   const hStr = h === 0 ? 'x' : h > 0 ? `(x\u2212${h})` : `(x+${Math.abs(h)})`
@@ -148,7 +148,7 @@ function formatFormula(a, h, k) {
   return `y = ${aStr}${hStr}\u00B2${kStr}`
 }
 
-// ─── Component ───────────────────────────────────────────────
+// âââ Component âââââââââââââââââââââââââââââââââââââââââââââââ
 export default function Mission1_Arc({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -224,27 +224,32 @@ export default function Mission1_Arc({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          ← Exit
+          â Exit
         </NeonButton>
       </div>
 
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-green)', marginBottom: 6 }}>
-        🚀 MISSION 1
+        ð MISSION 1
       </div>
 
       <NeonText as="h2" color="green" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        发射弧线
+        åå°å¼§çº¿
       </NeonText>
 
-      <p style={{
-        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
-      }}>
-        {completed
-          ? '🎉 Launch trajectory locked! All arcs calibrated.'
-          : `Adjust the sliders to match the target curve: ${task?.label || '?'}`
-        }
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed
+            ? 'ð Launch trajectory locked! All arcs calibrated.'
+            : `Adjust the sliders to match the target curve: ${task?.label || '?'}`
+          }
+        </p>
+      </div>
 
       {!completed && (
         <>
@@ -254,7 +259,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
             marginBottom: 20,
           }}>
             <div style={{ ...meterLabel, marginBottom: 8 }}>
-              ARC {taskIndex + 1}/{ARC_TASKS.length} — TARGET: {task?.label}
+              ARC {taskIndex + 1}/{ARC_TASKS.length} â TARGET: {task?.label}
             </div>
 
             <CoordinateGraph
@@ -271,7 +276,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
                 <span style={{ color: 'var(--neon-green)', opacity: 0.45 }}>- -</span> Target
               </span>
               <span>
-                <span style={{ color: 'var(--neon-green)', opacity: 0.9 }}>——</span> Yours
+                <span style={{ color: 'var(--neon-green)', opacity: 0.9 }}>ââ</span> Yours
               </span>
             </div>
           </div>
@@ -408,14 +413,14 @@ export default function Mission1_Arc({ system, mission, onBack }) {
               color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
-              ⚠ TRAJECTORY MISMATCH — adjust the sliders
+              â  TRAJECTORY MISMATCH â adjust the sliders
             </div>
           )}
 
           {/* Next button after solving */}
           {solved && (
             <NeonButton onClick={handleNext} color="green" size="small">
-              {taskIndex < ARC_TASKS.length - 1 ? 'Next Arc →' : 'Complete →'}
+              {taskIndex < ARC_TASKS.length - 1 ? 'Next Arc â' : 'Complete â'}
             </NeonButton>
           )}
         </>
@@ -438,7 +443,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-green)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            💡 GUIDE
+            ð¡ GUIDE
           </div>
           {task?.hint || 'Adjust a, h, and k to match the dashed target curve.'}
         </div>
@@ -446,7 +451,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete →
+          Mission Complete â
         </NeonButton>
       )}
 

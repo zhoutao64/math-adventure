@@ -5,7 +5,7 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// ─── Task Data ───────────────────────────────────────────────
+// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
 const PATTERN_TASKS = [
   {
     rule: 'f(x) = 2x + 1',
@@ -19,18 +19,18 @@ const PATTERN_TASKS = [
     ahaDesc: 'A function is a rule: every input has exactly one output. Once you know the rule, you can predict ANY output! f(x) = 2x + 1 means "double the input and add 1."',
   },
   {
-    rule: 'f(x) = 3x − 2',
+    rule: 'f(x) = 3x â 2',
     givenPairs: [[0, -2], [1, 1], [2, 4]],
     queryX: 3,
     answer: 7,
     min: -5, max: 20,
-    hint: 'The output goes up by 3 each time x increases by 1. Starting from −2 when x = 0.',
+    hint: 'The output goes up by 3 each time x increases by 1. Starting from â2 when x = 0.',
     ahaId: 'constant_change',
     ahaTitle: 'Constant Change',
-    ahaDesc: 'When the output changes by the same amount for each unit increase in input, the function is LINEAR. Here the output always increases by 3 — that constant rate of change is what makes it a straight line!',
+    ahaDesc: 'When the output changes by the same amount for each unit increase in input, the function is LINEAR. Here the output always increases by 3 â that constant rate of change is what makes it a straight line!',
   },
   {
-    rule: 'f(x) = −x + 5',
+    rule: 'f(x) = âx + 5',
     givenPairs: [[0, 5], [2, 3], [4, 1]],
     queryX: 6,
     answer: -1,
@@ -38,7 +38,7 @@ const PATTERN_TASKS = [
     hint: 'Output goes down by 1 for every 1 increase in x. Continue the pattern past zero!',
     ahaId: 'negative_output',
     ahaTitle: 'Negative Outputs',
-    ahaDesc: 'Functions can output negative numbers — the pattern continues past zero! If f(x) = −x + 5, then f(6) = −6 + 5 = −1. The rule doesn\'t stop just because the answer is negative.',
+    ahaDesc: 'Functions can output negative numbers â the pattern continues past zero! If f(x) = âx + 5, then f(6) = â6 + 5 = â1. The rule doesn\'t stop just because the answer is negative.',
   },
   {
     rule: 'f(x) = x + 3',
@@ -49,7 +49,7 @@ const PATTERN_TASKS = [
     hint: 'The output is always 3 more than the input. What happens when x = 0?',
     ahaId: 'input_zero',
     ahaTitle: 'The x = 0 Input',
-    ahaDesc: 'When x = 0, the output equals the constant in the rule. For f(x) = x + 3, f(0) = 0 + 3 = 3. This special value is called the y-intercept — it\'s where the line crosses the y-axis!',
+    ahaDesc: 'When x = 0, the output equals the constant in the rule. For f(x) = x + 3, f(0) = 0 + 3 = 3. This special value is called the y-intercept â it\'s where the line crosses the y-axis!',
   },
   {
     rule: 'f(x) = 2x',
@@ -64,7 +64,7 @@ const PATTERN_TASKS = [
   },
 ]
 
-// ─── Signal Table Visual ─────────────────────────────────────
+// âââ Signal Table Visual âââââââââââââââââââââââââââââââââââââ
 function SignalTable({ givenPairs, queryX, queryAnswer, solved }) {
   const rows = [
     ...givenPairs.map(([x, y]) => ({ x, y, known: true })),
@@ -82,7 +82,7 @@ function SignalTable({ givenPairs, queryX, queryAnswer, solved }) {
           Input (x)
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.3)', fontSize: 14 }}>
-          →
+          â
         </div>
         <div style={{ ...cellStyle, background: 'rgba(255,45,149,0.15)', color: 'var(--neon-pink)', fontWeight: 700 }}>
           Output f(x)
@@ -103,7 +103,7 @@ function SignalTable({ givenPairs, queryX, queryAnswer, solved }) {
             {row.x}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.2)', fontSize: 14 }}>
-            →
+            â
           </div>
           <div style={{
             ...cellStyle,
@@ -131,7 +131,7 @@ const cellStyle = {
   letterSpacing: 1,
 }
 
-// ─── Component ───────────────────────────────────────────────
+// âââ Component âââââââââââââââââââââââââââââââââââââââââââââââ
 export default function Mission1_Pattern({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -198,27 +198,32 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          ← Exit
+          â Exit
         </NeonButton>
       </div>
 
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-pink)', marginBottom: 6 }}>
-        📡 MISSION 1
+        ð¡ MISSION 1
       </div>
 
       <NeonText as="h2" color="pink" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        信号模式识别
+        ä¿¡å·æ¨¡å¼è¯å«
       </NeonText>
 
-      <p style={{
-        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
-      }}>
-        {completed
-          ? '🎉 Signal decoder restored! All patterns decoded.'
-          : 'Decode the signal pattern — predict the missing output.'
-        }
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed
+            ? 'ð Signal decoder restored! All patterns decoded.'
+            : 'Decode the signal pattern â predict the missing output.'
+          }
+        </p>
+      </div>
 
       {!completed && (
         <>
@@ -228,7 +233,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
             marginBottom: 20,
           }}>
             <div style={{ ...meterLabel, marginBottom: 12 }}>
-              SIGNAL {taskIndex + 1}/{PATTERN_TASKS.length} — DECODING
+              SIGNAL {taskIndex + 1}/{PATTERN_TASKS.length} â DECODING
             </div>
 
             <SignalTable
@@ -304,14 +309,14 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
               color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
-              ⚠ SIGNAL INTERFERENCE — wrong prediction
+              â  SIGNAL INTERFERENCE â wrong prediction
             </div>
           )}
 
           {/* Next button after solving */}
           {solved && (
             <NeonButton onClick={handleNext} color="green" size="small">
-              {taskIndex < PATTERN_TASKS.length - 1 ? 'Next Signal →' : 'Complete →'}
+              {taskIndex < PATTERN_TASKS.length - 1 ? 'Next Signal â' : 'Complete â'}
             </NeonButton>
           )}
         </>
@@ -334,7 +339,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            💡 GUIDE
+            ð¡ GUIDE
           </div>
           {task?.hint || 'Study the pattern in the signal table and predict the missing output.'}
         </div>
@@ -342,7 +347,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete →
+          Mission Complete â
         </NeonButton>
       )}
 

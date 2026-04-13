@@ -5,7 +5,7 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// ─── Task Data ───────────────────────────────────────────────
+// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
 const FACTOR_TASKS = [
   {
     b: 5, c: 6,
@@ -65,7 +65,7 @@ const FACTOR_TASKS = [
   },
 ]
 
-// ─── Number Picker ──────────────────────────────────────────
+// âââ Number Picker ââââââââââââââââââââââââââââââââââââââââââ
 function NumberPicker({ label, value, onChange, disabled }) {
   return (
     <div style={{
@@ -128,7 +128,7 @@ function NumberPicker({ label, value, onChange, disabled }) {
   )
 }
 
-// ─── Component ───────────────────────────────────────────────
+// âââ Component âââââââââââââââââââââââââââââââââââââââââââââââ
 export default function Mission2_Factor({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -208,27 +208,32 @@ export default function Mission2_Factor({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          ← Exit
+          â Exit
         </NeonButton>
       </div>
 
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-green)', marginBottom: 6 }}>
-        🚀 MISSION 2
+        ð MISSION 2
       </div>
 
       <NeonText as="h2" color="green" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        结构完整性
+        ç»æå®æ´æ§
       </NeonText>
 
-      <p style={{
-        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
-      }}>
-        {completed
-          ? '🎉 Hull integrity restored! All quadratics factored.'
-          : 'Factor the quadratic by finding p and q such that (x+p)(x+q) matches.'
-        }
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed
+            ? 'ð Hull integrity restored! All quadratics factored.'
+            : 'Factor the quadratic by finding p and q such that (x+p)(x+q) matches.'
+          }
+        </p>
+      </div>
 
       {!completed && (
         <>
@@ -376,7 +381,7 @@ export default function Mission2_Factor({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-green)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            💡 GUIDE
+            ð¡ GUIDE
           </div>
           {task?.hint || 'Adjust p and q until the sum and product match the targets.'}
         </div>
@@ -384,7 +389,7 @@ export default function Mission2_Factor({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete →
+          Mission Complete â
         </NeonButton>
       )}
 

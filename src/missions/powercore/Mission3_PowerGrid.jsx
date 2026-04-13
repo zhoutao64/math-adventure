@@ -5,9 +5,9 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// ─── Task Data ───────────────────────────────────────────────
+// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
 const GRID_TASKS = [
-  // ── Commutative ──
+  // ââ Commutative ââ
   {
     type: 'commutative', label: 'GRID SECTOR A', ahaId: null,
     left: { expr: '3 + 5', result: 8 },
@@ -17,11 +17,11 @@ const GRID_TASKS = [
     type: 'commutative', label: 'GRID SECTOR B',
     ahaId: 'commutative',
     ahaTitle: 'Commutative Law',
-    ahaDesc: 'The order of numbers doesn\'t matter for addition or multiplication. a + b = b + a, a × b = b × a. The circuit works either way!',
-    left: { expr: '4 × 7', result: 28 },
-    right: { expr: '7 × 4', result: 28 },
+    ahaDesc: 'The order of numbers doesn\'t matter for addition or multiplication. a + b = b + a, a Ã b = b Ã a. The circuit works either way!',
+    left: { expr: '4 Ã 7', result: 28 },
+    right: { expr: '7 Ã 4', result: 28 },
   },
-  // ── Associative ──
+  // ââ Associative ââ
   {
     type: 'associative', label: 'GRID SECTOR C', ahaId: null,
     formA: { expr: '(2 + 3) + 4', result: 9 },
@@ -32,31 +32,31 @@ const GRID_TASKS = [
     ahaId: 'associative',
     ahaTitle: 'Associative Law',
     ahaDesc: 'How you group numbers doesn\'t change the result. (a + b) + c = a + (b + c). The power flows the same regardless of grouping!',
-    formA: { expr: '(2 × 3) × 5', result: 30 },
-    formB: { expr: '2 × (3 × 5)', result: 30 },
+    formA: { expr: '(2 Ã 3) Ã 5', result: 30 },
+    formB: { expr: '2 Ã (3 Ã 5)', result: 30 },
   },
-  // ── Distributive ──
+  // ââ Distributive ââ
   {
     type: 'distributive', label: 'GRID SECTOR E',
     ahaId: 'distributive',
     ahaTitle: 'Distributive Law',
-    ahaDesc: 'Multiplication distributes over addition: a × (b + c) = a × b + a × c. One big circuit equals two smaller ones combined!',
-    whole: { expr: '3 × (4 + 2)', result: 18 },
-    parts: { expr: '3 × 4 + 3 × 2', a: 12, b: 6, result: 18 },
+    ahaDesc: 'Multiplication distributes over addition: a Ã (b + c) = a Ã b + a Ã c. One big circuit equals two smaller ones combined!',
+    whole: { expr: '3 Ã (4 + 2)', result: 18 },
+    parts: { expr: '3 Ã 4 + 3 Ã 2', a: 12, b: 6, result: 18 },
     dims: { w: 3, h1: 4, h2: 2 },
   },
   {
     type: 'distributive', label: 'GRID SECTOR F',
     ahaId: 'area_model',
     ahaTitle: 'Area Model',
-    ahaDesc: 'The distributive law IS area! A rectangle of width w and height (a + b) has the same area as two rectangles: w × a + w × b. Math is geometry!',
-    whole: { expr: '5 × (3 + 1)', result: 20 },
-    parts: { expr: '5 × 3 + 5 × 1', a: 15, b: 5, result: 20 },
+    ahaDesc: 'The distributive law IS area! A rectangle of width w and height (a + b) has the same area as two rectangles: w Ã a + w Ã b. Math is geometry!',
+    whole: { expr: '5 Ã (3 + 1)', result: 20 },
+    parts: { expr: '5 Ã 3 + 5 Ã 1', a: 15, b: 5, result: 20 },
     dims: { w: 5, h1: 3, h2: 1 },
   },
 ]
 
-// ─── Shared Styles ───────────────────────────────────────────
+// âââ Shared Styles âââââââââââââââââââââââââââââââââââââââââââ
 const panelStyle = {
   background: 'var(--glass)', border: '1px solid var(--glass-border)',
   borderRadius: 12, padding: 'clamp(14px, 3vw, 20px)', textAlign: 'center',
@@ -78,7 +78,7 @@ const meterLabel = {
   fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.3)', marginBottom: 4,
 }
 
-// ─── Commutative Puzzle ──────────────────────────────────────
+// âââ Commutative Puzzle ââââââââââââââââââââââââââââââââââââââ
 function CommutativeTask({ task, onComplete }) {
   const [revealedLeft, setRevealedLeft] = useState(false)
   const [revealedRight, setRevealedRight] = useState(false)
@@ -138,7 +138,7 @@ function CommutativeTask({ task, onComplete }) {
             Both circuits output the same power!
           </div>
           <NeonButton onClick={onComplete} color="green" size="small">
-            Confirm →
+            Confirm â
           </NeonButton>
         </div>
       )}
@@ -146,7 +146,7 @@ function CommutativeTask({ task, onComplete }) {
   )
 }
 
-// ─── Associative Puzzle ──────────────────────────────────────
+// âââ Associative Puzzle ââââââââââââââââââââââââââââââââââââââ
 function AssociativeTask({ task, onComplete }) {
   const [activeForm, setActiveForm] = useState(null) // 'A' | 'B'
   const [revealedA, setRevealedA] = useState(false)
@@ -213,7 +213,7 @@ function AssociativeTask({ task, onComplete }) {
             Regrouping doesn't change the output!
           </div>
           <NeonButton onClick={onComplete} color="green" size="small">
-            Confirm →
+            Confirm â
           </NeonButton>
         </div>
       )}
@@ -221,7 +221,7 @@ function AssociativeTask({ task, onComplete }) {
   )
 }
 
-// ─── Distributive Puzzle (Area Model) ────────────────────────
+// âââ Distributive Puzzle (Area Model) ââââââââââââââââââââââââ
 function DistributiveTask({ task, onComplete }) {
   const [split, setSplit] = useState(false)
   const { w, h1, h2 } = task.dims
@@ -233,7 +233,7 @@ function DistributiveTask({ task, onComplete }) {
   return (
     <div>
       <div style={{ ...meterLabel, marginBottom: 12, textAlign: 'center' }}>
-        {split ? 'SPLIT VIEW' : 'COMBINED VIEW'} — TAP TO TOGGLE
+        {split ? 'SPLIT VIEW' : 'COMBINED VIEW'} â TAP TO TOGGLE
       </div>
 
       {/* Area rectangle */}
@@ -281,7 +281,7 @@ function DistributiveTask({ task, onComplete }) {
         ) : (
           /* Split into two rectangles */
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {/* Top rectangle (w × h1) */}
+            {/* Top rectangle (w Ã h1) */}
             <div style={{
               ...panelStyle, padding: 0, overflow: 'hidden',
               borderColor: 'var(--neon-green)',
@@ -307,10 +307,10 @@ function DistributiveTask({ task, onComplete }) {
                 fontSize: 'clamp(13px, 3vw, 16px)', fontWeight: 700,
                 color: 'var(--neon-green)', fontFamily: 'var(--font-display)',
               }}>
-                {w} × {h1} = {task.parts.a}
+                {w} Ã {h1} = {task.parts.a}
               </div>
             </div>
-            {/* Bottom rectangle (w × h2) */}
+            {/* Bottom rectangle (w Ã h2) */}
             <div style={{
               ...panelStyle, padding: 0, overflow: 'hidden',
               borderColor: 'var(--neon-yellow)',
@@ -336,7 +336,7 @@ function DistributiveTask({ task, onComplete }) {
                 fontSize: 'clamp(13px, 3vw, 16px)', fontWeight: 700,
                 color: 'var(--neon-yellow)', fontFamily: 'var(--font-display)',
               }}>
-                {w} × {h2} = {task.parts.b}
+                {w} Ã {h2} = {task.parts.b}
               </div>
             </div>
             {/* Sum */}
@@ -369,11 +369,11 @@ function DistributiveTask({ task, onComplete }) {
           fontFamily: 'var(--font-body)', opacity: split ? 1 : 0.4,
           transition: 'opacity 0.3s',
         }}>
-          {split ? 'Same area — same value!' : 'Tap the rectangle to split it'}
+          {split ? 'Same area â same value!' : 'Tap the rectangle to split it'}
         </div>
         {split && (
           <NeonButton onClick={onComplete} color="green" size="small">
-            Confirm →
+            Confirm â
           </NeonButton>
         )}
       </div>
@@ -381,7 +381,7 @@ function DistributiveTask({ task, onComplete }) {
   )
 }
 
-// ─── Main Component ──────────────────────────────────────────
+// âââ Main Component ââââââââââââââââââââââââââââââââââââââââââ
 export default function Mission3_PowerGrid({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -435,7 +435,7 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          ← Exit
+          â Exit
         </NeonButton>
       </div>
 
@@ -443,22 +443,27 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
         fontSize: 13, letterSpacing: 3, color: 'var(--neon-cyan)',
         marginBottom: 6,
       }}>
-        ⚡ MISSION 3
+        â¡ MISSION 3
       </div>
 
       <NeonText as="h2" color="cyan" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        配电优化
+        éçµä¼å
       </NeonText>
 
-      <p style={{
-        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
-        fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
-      }}>
-        {completed
-          ? '🎉 Power grid optimized! Station fully powered.'
-          : 'Discover the algebraic properties that optimize the power grid.'
-        }
-      </p>
+      <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
+        <div style={{ fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>
+          🎯 OBJECTIVE
+        </div>
+        <p style={{
+          fontSize: 'clamp(15px, 3vw, 17px)', color: 'rgba(255,255,255,0.85)',
+          fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
+        }}>
+          {completed
+            ? 'ð Power grid optimized! Station fully powered.'
+            : 'Discover the algebraic properties that optimize the power grid.'
+          }
+        </p>
+      </div>
 
       {/* Task label */}
       {!completed && (
@@ -466,7 +471,7 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
           fontSize: 12, letterSpacing: 3, color: 'var(--neon-yellow)',
           marginBottom: 16, opacity: 0.7,
         }}>
-          {task?.label} — SECTOR {taskIndex + 1}/{GRID_TASKS.length}
+          {task?.label} â SECTOR {taskIndex + 1}/{GRID_TASKS.length}
         </div>
       )}
 
@@ -502,7 +507,7 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-cyan)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            💡 GUIDE
+            ð¡ GUIDE
           </div>
           {task?.type === 'commutative' && 'Compute both circuits and compare their outputs. Does the order matter?'}
           {task?.type === 'associative' && 'Click each grouping to see its result. Does regrouping change anything?'}
@@ -512,7 +517,7 @@ export default function Mission3_PowerGrid({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete →
+          Mission Complete â
         </NeonButton>
       )}
 
