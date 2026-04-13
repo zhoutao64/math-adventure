@@ -5,66 +5,66 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── Task Data ───────────────────────────────────────────────
 const COURSE_TASKS = [
   {
     equation: '2x + 3 = 11',
     steps: [
       {
         current: '2x + 3 = 11',
-        correctOp: { label: 'â 3', desc: 'Subtract 3 from both sides' },
+        correctOp: { label: '− 3', desc: 'Subtract 3 from both sides' },
         wrongOps: [
-          { label: 'Ã· 2', desc: 'Divide both sides by 2' },
-          { label: 'â 11', desc: 'Subtract 11 from both sides' },
+          { label: '÷ 2', desc: 'Divide both sides by 2' },
+          { label: '− 11', desc: 'Subtract 11 from both sides' },
           { label: '+ 3', desc: 'Add 3 to both sides' },
         ],
         result: '2x = 8',
       },
       {
         current: '2x = 8',
-        correctOp: { label: 'Ã· 2', desc: 'Divide both sides by 2' },
+        correctOp: { label: '÷ 2', desc: 'Divide both sides by 2' },
         wrongOps: [
-          { label: 'Ã 2', desc: 'Multiply both sides by 2' },
-          { label: 'â 2', desc: 'Subtract 2 from both sides' },
+          { label: '× 2', desc: 'Multiply both sides by 2' },
+          { label: '− 2', desc: 'Subtract 2 from both sides' },
           { label: '+ 2', desc: 'Add 2 to both sides' },
         ],
         result: 'x = 4',
       },
     ],
     answer: 4,
-    check: '2(4) + 3 = 8 + 3 = 11 â',
+    check: '2(4) + 3 = 8 + 3 = 11 ✓',
     hint: 'First, remove the constant (+3) from the x side. Then deal with the coefficient.',
     ahaId: 'multi_step',
     ahaTitle: 'Multi-Step Strategy',
     ahaDesc: 'For equations like 2x + 3 = 11, work in reverse order: first undo addition/subtraction to isolate the term with x, then undo multiplication/division to solve for x. Like peeling layers off an onion!',
   },
   {
-    equation: '3x â 4 = 8',
+    equation: '3x − 4 = 8',
     steps: [
       {
-        current: '3x â 4 = 8',
+        current: '3x − 4 = 8',
         correctOp: { label: '+ 4', desc: 'Add 4 to both sides' },
         wrongOps: [
-          { label: 'Ã· 3', desc: 'Divide both sides by 3' },
-          { label: 'â 4', desc: 'Subtract 4 from both sides' },
-          { label: 'â 8', desc: 'Subtract 8 from both sides' },
+          { label: '÷ 3', desc: 'Divide both sides by 3' },
+          { label: '− 4', desc: 'Subtract 4 from both sides' },
+          { label: '− 8', desc: 'Subtract 8 from both sides' },
         ],
         result: '3x = 12',
       },
       {
         current: '3x = 12',
-        correctOp: { label: 'Ã· 3', desc: 'Divide both sides by 3' },
+        correctOp: { label: '÷ 3', desc: 'Divide both sides by 3' },
         wrongOps: [
-          { label: 'Ã 3', desc: 'Multiply both sides by 3' },
-          { label: 'â 3', desc: 'Subtract 3 from both sides' },
+          { label: '× 3', desc: 'Multiply both sides by 3' },
+          { label: '− 3', desc: 'Subtract 3 from both sides' },
           { label: '+ 3', desc: 'Add 3 to both sides' },
         ],
         result: 'x = 4',
       },
     ],
     answer: 4,
-    check: '3(4) â 4 = 12 â 4 = 8 â',
-    hint: 'Undo the subtraction first (+4), then undo the multiplication (Ã·3).',
+    check: '3(4) − 4 = 12 − 4 = 8 ✓',
+    hint: 'Undo the subtraction first (+4), then undo the multiplication (÷3).',
     ahaId: null,
   },
   {
@@ -72,58 +72,58 @@ const COURSE_TASKS = [
     steps: [
       {
         current: '5x + 2 = 17',
-        correctOp: { label: 'â 2', desc: 'Subtract 2 from both sides' },
+        correctOp: { label: '− 2', desc: 'Subtract 2 from both sides' },
         wrongOps: [
-          { label: 'Ã· 5', desc: 'Divide both sides by 5' },
+          { label: '÷ 5', desc: 'Divide both sides by 5' },
           { label: '+ 2', desc: 'Add 2 to both sides' },
-          { label: 'â 17', desc: 'Subtract 17 from both sides' },
+          { label: '− 17', desc: 'Subtract 17 from both sides' },
         ],
         result: '5x = 15',
       },
       {
         current: '5x = 15',
-        correctOp: { label: 'Ã· 5', desc: 'Divide both sides by 5' },
+        correctOp: { label: '÷ 5', desc: 'Divide both sides by 5' },
         wrongOps: [
-          { label: 'Ã 5', desc: 'Multiply both sides by 5' },
-          { label: 'â 5', desc: 'Subtract 5 from both sides' },
+          { label: '× 5', desc: 'Multiply both sides by 5' },
+          { label: '− 5', desc: 'Subtract 5 from both sides' },
           { label: '+ 5', desc: 'Add 5 to both sides' },
         ],
         result: 'x = 3',
       },
     ],
     answer: 3,
-    check: '5(3) + 2 = 15 + 2 = 17 â',
+    check: '5(3) + 2 = 15 + 2 = 17 ✓',
     hint: 'Remove the +2 first, then divide by the coefficient of x.',
     ahaId: 'check_answer',
     ahaTitle: 'Check Your Answer',
-    ahaDesc: 'Always verify! Substitute your answer back into the original equation. If 5x + 2 = 17 and x = 3, then 5(3) + 2 = 15 + 2 = 17 â. Both sides match â you got it right!',
+    ahaDesc: 'Always verify! Substitute your answer back into the original equation. If 5x + 2 = 17 and x = 3, then 5(3) + 2 = 15 + 2 = 17 ✓. Both sides match — you got it right!',
   },
   {
-    equation: '4x â 7 = 13',
+    equation: '4x − 7 = 13',
     steps: [
       {
-        current: '4x â 7 = 13',
+        current: '4x − 7 = 13',
         correctOp: { label: '+ 7', desc: 'Add 7 to both sides' },
         wrongOps: [
-          { label: 'Ã· 4', desc: 'Divide both sides by 4' },
-          { label: 'â 7', desc: 'Subtract 7 from both sides' },
-          { label: 'â 13', desc: 'Subtract 13 from both sides' },
+          { label: '÷ 4', desc: 'Divide both sides by 4' },
+          { label: '− 7', desc: 'Subtract 7 from both sides' },
+          { label: '− 13', desc: 'Subtract 13 from both sides' },
         ],
         result: '4x = 20',
       },
       {
         current: '4x = 20',
-        correctOp: { label: 'Ã· 4', desc: 'Divide both sides by 4' },
+        correctOp: { label: '÷ 4', desc: 'Divide both sides by 4' },
         wrongOps: [
-          { label: 'Ã 4', desc: 'Multiply both sides by 4' },
-          { label: 'â 4', desc: 'Subtract 4 from both sides' },
+          { label: '× 4', desc: 'Multiply both sides by 4' },
+          { label: '− 4', desc: 'Subtract 4 from both sides' },
           { label: '+ 4', desc: 'Add 4 to both sides' },
         ],
         result: 'x = 5',
       },
     ],
     answer: 5,
-    check: '4(5) â 7 = 20 â 7 = 13 â',
+    check: '4(5) − 7 = 20 − 7 = 13 ✓',
     hint: 'Add 7 to both sides first, then divide by 4.',
     ahaId: null,
   },
@@ -132,35 +132,35 @@ const COURSE_TASKS = [
     steps: [
       {
         current: '2(x + 3) = 16',
-        correctOp: { label: 'Ã· 2', desc: 'Divide both sides by 2' },
+        correctOp: { label: '÷ 2', desc: 'Divide both sides by 2' },
         wrongOps: [
-          { label: 'â 3', desc: 'Subtract 3 from both sides' },
-          { label: 'Ã 2', desc: 'Multiply both sides by 2' },
-          { label: 'â 2', desc: 'Subtract 2 from both sides' },
+          { label: '− 3', desc: 'Subtract 3 from both sides' },
+          { label: '× 2', desc: 'Multiply both sides by 2' },
+          { label: '− 2', desc: 'Subtract 2 from both sides' },
         ],
         result: 'x + 3 = 8',
       },
       {
         current: 'x + 3 = 8',
-        correctOp: { label: 'â 3', desc: 'Subtract 3 from both sides' },
+        correctOp: { label: '− 3', desc: 'Subtract 3 from both sides' },
         wrongOps: [
           { label: '+ 3', desc: 'Add 3 to both sides' },
-          { label: 'Ã 3', desc: 'Multiply both sides by 3' },
-          { label: 'Ã· 3', desc: 'Divide both sides by 3' },
+          { label: '× 3', desc: 'Multiply both sides by 3' },
+          { label: '÷ 3', desc: 'Divide both sides by 3' },
         ],
         result: 'x = 5',
       },
     ],
     answer: 5,
-    check: '2(5 + 3) = 2(8) = 16 â',
+    check: '2(5 + 3) = 2(8) = 16 ✓',
     hint: 'When parentheses wrap the x-term, divide to remove the outer coefficient first!',
     ahaId: 'distribute_first',
     ahaTitle: 'Dealing with Parentheses',
-    ahaDesc: 'When you see 2(x + 3) = 16, you can divide both sides by 2 first to get x + 3 = 8, then solve normally. Alternatively, distribute: 2x + 6 = 16. Either way works â choose the path that feels simpler!',
+    ahaDesc: 'When you see 2(x + 3) = 16, you can divide both sides by 2 first to get x + 3 = 8, then solve normally. Alternatively, distribute: 2x + 6 = 16. Either way works — choose the path that feels simpler!',
   },
 ]
 
-// âââ Styles ââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── Styles ──────────────────────────────────────────────────
 const opBtnStyle = {
   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
   minWidth: 80, minHeight: 54, padding: '8px 12px',
@@ -169,7 +169,7 @@ const opBtnStyle = {
   fontFamily: 'var(--font-display)',
 }
 
-// âââ Component âââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── Component ───────────────────────────────────────────────
 export default function Mission3_Course({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -270,16 +270,16 @@ export default function Mission3_Course({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          â Exit
+          ← Exit
         </NeonButton>
       </div>
 
       <div style={{ fontSize: 13, letterSpacing: 3, color: 'var(--neon-yellow)', marginBottom: 6 }}>
-        ð§­ MISSION 3
+        🧭 MISSION 3
       </div>
 
       <NeonText as="h2" color="yellow" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        èªçº¿ä¿®æ­£
+        航线修正
       </NeonText>
 
       <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
@@ -291,8 +291,8 @@ export default function Mission3_Course({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
         }}>
           {completed
-            ? 'ð Course plotted! Navigation system fully online.'
-            : 'Solve multi-step equations â choose the right operation at each step.'
+            ? '🎉 Course plotted! Navigation system fully online.'
+            : 'Solve multi-step equations — choose the right operation at each step.'
           }
         </p>
       </div>
@@ -305,7 +305,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
             marginBottom: 20,
           }}>
             <div style={{ ...meterLabel, marginBottom: 12 }}>
-              EQUATION {taskIndex + 1}/{COURSE_TASKS.length} â STEP {stepIndex + 1}/{task?.steps.length}
+              EQUATION {taskIndex + 1}/{COURSE_TASKS.length} — STEP {stepIndex + 1}/{task?.steps.length}
             </div>
 
             {/* Step history */}
@@ -349,7 +349,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
                 color: 'var(--neon-green)', fontFamily: 'var(--font-display)',
                 textAlign: 'center', marginTop: 12, letterSpacing: 1,
               }}>
-                â {step?.result}
+                → {step?.result}
               </div>
             )}
           </div>
@@ -395,7 +395,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
               color: 'var(--neon-pink)', fontSize: 13, letterSpacing: 2,
               marginBottom: 8, textAlign: 'center',
             }}>
-              â  COURSE DEVIATION â try another operation
+              ⚠ COURSE DEVIATION — try another operation
             </div>
           )}
         </>
@@ -457,7 +457,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
 
           <div style={{ marginTop: 20 }}>
             <NeonButton onClick={handleNext} color="green" size="small">
-              {taskIndex < COURSE_TASKS.length - 1 ? 'Next Course â' : 'Complete â'}
+              {taskIndex < COURSE_TASKS.length - 1 ? 'Next Course →' : 'Complete →'}
             </NeonButton>
           </div>
         </div>
@@ -480,7 +480,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-yellow)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            ð¡ GUIDE
+            💡 GUIDE
           </div>
           {task?.hint || 'Choose the operation that simplifies the equation one step closer to solving for x.'}
         </div>
@@ -488,7 +488,7 @@ export default function Mission3_Course({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete â
+          Mission Complete →
         </NeonButton>
       )}
 

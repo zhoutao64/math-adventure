@@ -5,41 +5,41 @@ import NeonText from '../../components/NeonText'
 import Modal from '../../components/Modal'
 import ProgressBar from '../../components/ProgressBar'
 
-// âââ Task Data âââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── Task Data ───────────────────────────────────────────────
 const SEQUENCE_TASKS = [
   {
-    tokens: [2, '+', 3, 'Ã', 4],
+    tokens: [2, '+', 3, '×', 4],
     correctResult: 14,
     ahaId: null,
     title: 'BOOT ALPHA',
-    hint: 'Which operation has higher priority: + or Ã?',
+    hint: 'Which operation has higher priority: + or ×?',
   },
   {
-    tokens: [5, 'Ã', 2, '+', 3],
+    tokens: [5, '×', 2, '+', 3],
     correctResult: 13,
     ahaId: 'mult_before_add',
     ahaTitle: 'Priority Protocol',
-    ahaDesc: 'Multiplication and division execute before addition and subtraction. The reactor doesn\'t just go left to right â there\'s a priority hierarchy!',
-    hint: 'The Ã command has higher priority. Execute it first.',
+    ahaDesc: 'Multiplication and division execute before addition and subtraction. The reactor doesn\'t just go left to right — there\'s a priority hierarchy!',
+    hint: 'The × command has higher priority. Execute it first.',
   },
   {
-    tokens: [3, '+', 4, 'Ã', 2, '-', 1],
+    tokens: [3, '+', 4, '×', 2, '-', 1],
     correctResult: 10,
     ahaId: 'left_to_right',
     ahaTitle: 'Sequential Rule',
-    ahaDesc: 'When operations share the same priority level (like + and â), the reactor processes them left to right. Order still matters within a tier!',
-    hint: 'After handling Ã, the remaining + and â are same-priority. Go left to right.',
+    ahaDesc: 'When operations share the same priority level (like + and −), the reactor processes them left to right. Order still matters within a tier!',
+    hint: 'After handling ×, the remaining + and − are same-priority. Go left to right.',
   },
   {
-    tokens: [10, '-', 6, 'Ã·', 2, '+', 1],
+    tokens: [10, '-', 6, '÷', 2, '+', 1],
     correctResult: 8,
     ahaId: 'div_equals_mult',
     ahaTitle: 'Division Equivalence',
     ahaDesc: 'Division and multiplication share the same priority tier. Both outrank addition and subtraction equally.',
-    hint: 'The Ã· command ranks equally with Ã. Both outrank + and â.',
+    hint: 'The ÷ command ranks equally with ×. Both outrank + and −.',
   },
   {
-    tokens: ['(', 2, '+', 3, ')', 'Ã', 4],
+    tokens: ['(', 2, '+', 3, ')', '×', 4],
     correctResult: 20,
     ahaId: 'parens_override',
     ahaTitle: 'Override Command',
@@ -47,7 +47,7 @@ const SEQUENCE_TASKS = [
     hint: 'The ( ) override marks force the enclosed command to execute first.',
   },
   {
-    tokens: ['(', 4, '+', 6, ')', 'Ã·', 2, '-', 1],
+    tokens: ['(', 4, '+', 6, ')', '÷', 2, '-', 1],
     correctResult: 4,
     ahaId: 'full_pemdas',
     ahaTitle: 'PEMDAS Mastery',
@@ -56,7 +56,7 @@ const SEQUENCE_TASKS = [
   },
 ]
 
-// âââ Expression Engine âââââââââââââââââââââââââââââââââââââââ
+// ─── Expression Engine ───────────────────────────────────────
 function getOperators(tokens) {
   const ops = []
   let depth = 0
@@ -64,8 +64,8 @@ function getOperators(tokens) {
     const t = tokens[i]
     if (t === '(') { depth++; continue }
     if (t === ')') { depth--; continue }
-    if (typeof t === 'string' && ['+', '-', 'Ã', 'Ã·'].includes(t)) {
-      const base = (t === 'Ã' || t === 'Ã·') ? 2 : 1
+    if (typeof t === 'string' && ['+', '-', '×', '÷'].includes(t)) {
+      const base = (t === '×' || t === '÷') ? 2 : 1
       ops.push({ tokenIndex: i, symbol: t, priority: base + depth * 10 })
     }
   }
@@ -96,8 +96,8 @@ function evalStep(tokens, opTokenIndex) {
   switch (op) {
     case '+': result = left + right; break
     case '-': result = left - right; break
-    case 'Ã': result = left * right; break
-    case 'Ã·': result = left / right; break
+    case '×': result = left * right; break
+    case '÷': result = left / right; break
   }
 
   // Determine removal range
@@ -111,7 +111,7 @@ function evalStep(tokens, opTokenIndex) {
       // Check no other ops remain between these parens
       let hasOtherOps = false
       for (let k = removeStart; k <= removeEnd; k++) {
-        if (k !== opTokenIndex && typeof tokens[k] === 'string' && ['+', '-', 'Ã', 'Ã·'].includes(tokens[k])) {
+        if (k !== opTokenIndex && typeof tokens[k] === 'string' && ['+', '-', '×', '÷'].includes(tokens[k])) {
           hasOtherOps = true
           break
         }
@@ -135,7 +135,7 @@ function evalStep(tokens, opTokenIndex) {
   return { newTokens, result }
 }
 
-// âââ Styles ââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── Styles ──────────────────────────────────────────────────
 const tokenBase = {
   display: 'flex', alignItems: 'center', justifyContent: 'center',
   minWidth: 44, minHeight: 44, padding: '6px 10px',
@@ -162,7 +162,7 @@ const parenStyle = {
   border: 'none', background: 'none',
 }
 
-// âââ Component âââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── Component ───────────────────────────────────────────────
 export default function Mission2_Sequence({ system, mission, onBack }) {
   const { state, dispatch } = useGame()
   const [taskIndex, setTaskIndex] = useState(0)
@@ -253,7 +253,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
     if (t === '(' || t === ')') {
       return <div key={i} style={parenStyle}>{t}</div>
     }
-    if (typeof t === 'string' && ['+', '-', 'Ã', 'Ã·'].includes(t)) {
+    if (typeof t === 'string' && ['+', '-', '×', '÷'].includes(t)) {
       const isCorrectFlash = correctFlash === i
       const isHinted = wrongCount >= 3 && getNextCorrect(tokens)?.tokenIndex === i
       return (
@@ -297,7 +297,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
   }
 
   // Format expression as text
-  const exprText = tokens.filter(t => typeof t === 'number' || ['+', '-', 'Ã', 'Ã·'].includes(t))
+  const exprText = tokens.filter(t => typeof t === 'number' || ['+', '-', '×', '÷'].includes(t))
     .map(t => typeof t === 'number' ? t : ` ${t} `).join('')
 
   return (
@@ -307,7 +307,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
     }}>
       <div style={{ display: 'flex', justifyContent: 'flex-start', width: '100%', marginBottom: 10 }}>
         <NeonButton onClick={onBack} size="small">
-          â Exit
+          ← Exit
         </NeonButton>
       </div>
 
@@ -315,11 +315,11 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
         fontSize: 13, letterSpacing: 3, color: 'var(--neon-cyan)',
         marginBottom: 6,
       }}>
-        â¡ MISSION 2
+        ⚡ MISSION 2
       </div>
 
       <NeonText as="h2" color="cyan" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>
-        å¯å¨åºå
+        启动序列
       </NeonText>
 
       <div style={{ textAlign: 'center', marginBottom: 20, maxWidth: 500, padding: '0 8px' }}>
@@ -331,10 +331,10 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)', lineHeight: 1.6, margin: 0,
         }}>
           {completed
-            ? 'ð Boot sequence complete! Reactor at full power.'
+            ? '🎉 Boot sequence complete! Reactor at full power.'
             : isExprDone
-            ? `â Output: ${tokens[0]} â Correct!`
-            : 'Tap the operation that should execute first.'
+              ? `✓ Output: ${tokens[0]} — Correct!`
+              : 'Tap the operation that should execute first.'
           }
         </p>
       </div>
@@ -345,7 +345,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
           fontSize: 12, letterSpacing: 3, color: 'var(--neon-yellow)',
           marginBottom: 12, opacity: 0.7,
         }}>
-          {task?.title} â SEQUENCE {taskIndex + 1}/{SEQUENCE_TASKS.length}
+          {task?.title} — SEQUENCE {taskIndex + 1}/{SEQUENCE_TASKS.length}
         </div>
       )}
 
@@ -379,7 +379,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
           marginBottom: 12, textAlign: 'center',
           animation: 'pulse 1.5s',
         }}>
-          â  ANOMALY â command priority error
+          ⚠ ANOMALY — command priority error
         </div>
       )}
 
@@ -419,7 +419,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-cyan)', fontSize: 13, letterSpacing: 2, marginBottom: 8 }}>
-            ð¡ GUIDE
+            💡 GUIDE
           </div>
           {wrongCount >= 2 ? task?.hint : 'Select the operator with the highest priority. The reactor will execute that command first.'}
         </div>
@@ -427,7 +427,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
 
       {completed && (
         <NeonButton onClick={onBack} color="green" style={{ marginTop: 30 }}>
-          Mission Complete â
+          Mission Complete →
         </NeonButton>
       )}
 
