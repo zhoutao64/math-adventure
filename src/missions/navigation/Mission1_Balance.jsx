@@ -61,9 +61,9 @@ const BALANCE_TASKS = [
 
 // ─── Balance Beam Visual ─────────────────────────────────────
 function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
-  // Calculate tilt: negative = left heavy, positive = right heavy
+  // Calculate tilt: positive = left side drops (left heavy), negative = right drops
   const diff = leftValue - rightValue
-  const tiltDeg = Math.max(-15, Math.min(15, diff * 3))
+  const tiltDeg = Math.max(-15, Math.min(15, -diff * 3))
   const isBalanced = diff === 0
   const color = isBalanced ? 'var(--neon-green)' : 'var(--neon-yellow)'
 
@@ -72,7 +72,7 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
       {/* Beam */}
       <div style={{
         position: 'relative', width: '100%', maxWidth: 360,
-        margin: '0 auto', height: 120,
+        margin: '0 auto', height: 150,
       }}>
         {/* Fulcrum triangle */}
         <div style={{
@@ -94,10 +94,17 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
         }}>
           {/* Left pan */}
           <div style={{
-            position: 'absolute', left: 0, top: -50,
+            position: 'absolute', left: 0, bottom: 12,
             transform: 'translateX(-50%)',
             textAlign: 'center',
           }}>
+            <div style={{
+              fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 700,
+              color: 'rgba(255,255,255,0.7)', marginBottom: 6,
+              fontFamily: 'var(--font-display)',
+            }}>
+              = {leftValue}
+            </div>
             <div style={{
               background: 'var(--glass)', border: `2px solid ${color}`,
               borderRadius: 10, padding: '8px 14px', minWidth: 60,
@@ -107,20 +114,21 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
             }}>
               {leftLabel}
             </div>
-            <div style={{
-              fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4,
-              fontFamily: 'var(--font-display)',
-            }}>
-              = {leftValue}
-            </div>
           </div>
 
           {/* Right pan */}
           <div style={{
-            position: 'absolute', right: 0, top: -50,
+            position: 'absolute', right: 0, bottom: 12,
             transform: 'translateX(50%)',
             textAlign: 'center',
           }}>
+            <div style={{
+              fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 700,
+              color: 'rgba(255,255,255,0.7)', marginBottom: 6,
+              fontFamily: 'var(--font-display)',
+            }}>
+              = {rightValue}
+            </div>
             <div style={{
               background: 'var(--glass)', border: `2px solid ${color}`,
               borderRadius: 10, padding: '8px 14px', minWidth: 60,
@@ -129,12 +137,6 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
               transition: 'all 0.3s',
             }}>
               {rightLabel}
-            </div>
-            <div style={{
-              fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 4,
-              fontFamily: 'var(--font-display)',
-            }}>
-              = {rightValue}
             </div>
           </div>
         </div>
@@ -146,7 +148,7 @@ function BalanceBeam({ leftLabel, rightLabel, leftValue, rightValue, guess }) {
         color: isBalanced ? 'var(--neon-green)' : 'var(--neon-yellow)',
         transition: 'color 0.3s',
       }}>
-        {isBalanced ? '✓ BALANCED' : diff > 0 ? '← LEFT HEAVY' : '→ RIGHT HEAVY'}
+        {isBalanced ? '✓ BALANCED' : diff > 0 ? '↙ LEFT HEAVY' : '↘ RIGHT HEAVY'}
       </div>
     </div>
   )
