@@ -323,7 +323,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
       </NeonText>
 
       <p style={{
-        fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
+        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
         fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
       }}>
         {completed
@@ -381,7 +381,7 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
       {/* Reactor readout */}
       {!completed && (
         <div className="glass-panel" style={{
-          padding: 'clamp(12px, 2vw, 16px)', maxWidth: 400, width: '100%',
+          padding: 'clamp(14px, 2vw, 16px)', maxWidth: 400, width: '100%',
           marginBottom: 16, textAlign: 'center',
         }}>
           <div style={{ fontSize: 10, letterSpacing: 2, color: 'rgba(255,255,255,0.3)', marginBottom: 8 }}>
@@ -409,8 +409,8 @@ export default function Mission2_Sequence({ system, mission, onBack }) {
       {/* Guide */}
       {!completed && !isExprDone && (
         <div className="glass-panel" style={{
-          marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%',
-          fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
+          marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%',
+          fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-cyan)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>

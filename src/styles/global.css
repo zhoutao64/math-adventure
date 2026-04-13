@@ -76,7 +76,7 @@ body{
 .btn-purple:hover{background:rgba(180,77,255,0.1);box-shadow:0 0 20px rgba(180,77,255,0.3)}
 .btn-yellow{border-color:var(--neon-yellow);color:var(--neon-yellow)}
 .btn-yellow:hover{background:rgba(255,230,0,0.1);box-shadow:0 0 20px rgba(255,230,0,0.3)}
-.btn-small{padding:8px 20px;font-size:12px;letter-spacing:2px}
+.btn-small{padding:8px 20px;font-size:14px;letter-spacing:2px}
 
 /* ===== Modal ===== */
 .modal-overlay{
@@ -115,15 +115,15 @@ body{
 /* ===== Responsive ===== */
 @media(max-width:768px){
   .btn{padding:10px 24px;font-size:13px;letter-spacing:2px}
-  .btn-small{padding:10px 18px;font-size:12px;letter-spacing:1.5px}
+  .btn-small{padding:10px 18px;font-size:14px;letter-spacing:1.5px}
   .modal-card{max-width:calc(100vw - 40px);padding:28px 20px}
 }
 @media(max-width:480px){
   .btn{padding:12px 20px;font-size:13px;letter-spacing:1px}
-  .btn-small{padding:10px 16px;font-size:11px;letter-spacing:1px;min-height:44px;min-width:44px}
+  .btn-small{padding:10px 16px;font-size:13px;letter-spacing:1px;min-height:44px;min-width:44px}
   .modal-card{max-width:calc(100vw - 32px);padding:24px 16px}
   .modal-card h3{font-size:18px;letter-spacing:1px}
-  .modal-card .content{font-size:13px;line-height:1.8}
+  .modal-card .content{font-size:14px;line-height:1.8}
 }
 
 /* ===== Animations ===== */

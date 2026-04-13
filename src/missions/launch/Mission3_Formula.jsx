@@ -331,7 +331,7 @@ export default function Mission3_Formula({ system, mission, onBack }) {
       </NeonText>
 
       <p style={{
-        fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
+        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
         fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
       }}>
         {completed
@@ -395,7 +395,7 @@ export default function Mission3_Formula({ system, mission, onBack }) {
                       {h.stepLabel.split(':')[0]}
                     </span>
                     <span style={{
-                      fontSize: 'clamp(12px, 2.5vw, 14px)',
+                      fontSize: 'clamp(14px, 2.5vw, 14px)',
                       color: 'var(--neon-green)', fontFamily: 'var(--font-display)',
                       padding: '2px 8px', background: 'rgba(57,255,20,0.08)',
                       borderRadius: 6,
@@ -483,14 +483,14 @@ export default function Mission3_Formula({ system, mission, onBack }) {
               marginBottom: 6,
             }}>
               <span style={{
-                fontSize: 'clamp(11px, 2vw, 12px)', fontWeight: 700,
+                fontSize: 'clamp(13px, 2vw, 12px)', fontWeight: 700,
                 color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-body)',
                 minWidth: 60,
               }}>
                 {h.stepLabel.split(':')[0]}
               </span>
               <span style={{
-                fontSize: 'clamp(12px, 2.5vw, 14px)',
+                fontSize: 'clamp(14px, 2.5vw, 14px)',
                 color: 'var(--neon-green)', fontFamily: 'var(--font-display)',
                 padding: '2px 8px', background: 'rgba(57,255,20,0.08)',
                 borderRadius: 6,
@@ -540,8 +540,8 @@ export default function Mission3_Formula({ system, mission, onBack }) {
       {/* Guide */}
       {!completed && !showCheck && selected === null && (
         <div className="glass-panel" style={{
-          marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%',
-          fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
+          marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%',
+          fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-green)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>

@@ -211,7 +211,7 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
       </NeonText>
 
       <p style={{
-        fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
+        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
         fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
       }}>
         {completed
@@ -329,8 +329,8 @@ export default function Mission1_Pattern({ system, mission, onBack }) {
       {/* Guide */}
       {!completed && !solved && (
         <div className="glass-panel" style={{
-          marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%',
-          fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
+          marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%',
+          fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>

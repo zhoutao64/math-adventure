@@ -87,11 +87,11 @@ function TwoLineGrid({ line1, line2, guessX, guessY, solved }) {
 
       {/* Labels */}
       <text x={px(gx2) - 5} y={py(line1.m * gx2 + line1.b) - 8}
-        fill="var(--neon-purple)" fontSize={11} textAnchor="end" fontFamily="var(--font-display)">
+        fill="var(--neon-purple)" fontSize={13} textAnchor="end" fontFamily="var(--font-display)">
         {line1.label}
       </text>
       <text x={px(gx2) - 5} y={py(line2.m * gx2 + line2.b) - 8}
-        fill="var(--neon-cyan)" fontSize={11} textAnchor="end" fontFamily="var(--font-display)">
+        fill="var(--neon-cyan)" fontSize={13} textAnchor="end" fontFamily="var(--font-display)">
         {line2.label}
       </text>
 
@@ -109,7 +109,7 @@ function TwoLineGrid({ line1, line2, guessX, guessY, solved }) {
           <circle cx={px(guessX)} cy={py(guessY)} r={5}
             fill="var(--neon-green)" />
           <text x={px(guessX) + 12} y={py(guessY) - 8}
-            fill="var(--neon-green)" fontSize={12} fontFamily="var(--font-display)">
+            fill="var(--neon-green)" fontSize={14} fontFamily="var(--font-display)">
             ({guessX}, {guessY})
           </text>
         </>
@@ -182,13 +182,13 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
       <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-purple)', marginBottom: 6 }}>🛡️ MISSION 1</div>
       <NeonText as="h2" color="purple" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>护盾重叠区</NeonText>
 
-      <p style={{ fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16, fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px' }}>
+      <p style={{ fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16, fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px' }}>
         {completed ? '🎉 Shield overlap zones identified! Layer 1 online.' : 'Find the intersection point of the two shield lines.'}
       </p>
 
       {!completed && (
         <>
-          <div className="glass-panel" style={{ padding: 'clamp(12px, 3vw, 20px)', maxWidth: 500, width: '100%', marginBottom: 16 }}>
+          <div className="glass-panel" style={{ padding: 'clamp(14px, 3vw, 20px)', maxWidth: 500, width: '100%', marginBottom: 16 }}>
             <div style={{ ...meterLabel, marginBottom: 8 }}>OVERLAP {taskIndex + 1}/{OVERLAP_TASKS.length}</div>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginBottom: 8, flexWrap: 'wrap' }}>
@@ -249,7 +249,7 @@ export default function Mission1_Overlap({ system, mission, onBack }) {
       </div>
 
       {!completed && !solved && (
-        <div className="glass-panel" style={{ marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%', fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
+        <div className="glass-panel" style={{ marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%', fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
           <div style={{ color: 'var(--neon-purple)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>💡 GUIDE</div>
           {task?.hint}
         </div>

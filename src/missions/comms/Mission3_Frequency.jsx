@@ -124,7 +124,7 @@ function LineGrid({ targetM, targetB, userM, userB, tablePairs, solved }) {
         {/* Equation label on target */}
         {solved && (
           <text x={px(gx2) - 10} y={py(targetM * gx2 + targetB) - 10}
-            fill="var(--neon-green)" fontSize={12} textAnchor="end" fontFamily="var(--font-display)">
+            fill="var(--neon-green)" fontSize={14} textAnchor="end" fontFamily="var(--font-display)">
             {`y = ${targetM === 1 ? '' : targetM === -1 ? '−' : targetM}x${targetB > 0 ? ` + ${targetB}` : targetB < 0 ? ` − ${Math.abs(targetB)}` : ''}`}
           </text>
         )}
@@ -241,7 +241,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
       </NeonText>
 
       <p style={{
-        fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
+        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
         fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
       }}>
         {completed
@@ -254,7 +254,7 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
         <>
           {/* Coordinate Grid + Lines */}
           <div className="glass-panel" style={{
-            padding: 'clamp(12px, 3vw, 20px)', maxWidth: 500, width: '100%',
+            padding: 'clamp(14px, 3vw, 20px)', maxWidth: 500, width: '100%',
             marginBottom: 16,
           }}>
             <div style={{ ...meterLabel, marginBottom: 8 }}>
@@ -419,8 +419,8 @@ export default function Mission3_Frequency({ system, mission, onBack }) {
       {/* Guide */}
       {!completed && !solved && (
         <div className="glass-panel" style={{
-          marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%',
-          fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
+          marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%',
+          fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>

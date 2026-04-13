@@ -97,7 +97,7 @@ function CoordinateGraph({ task, userA, userH, userK }) {
     axisLabels.push(
       <text key={`lx${x}`} x={toSvgX(x)} y={toSvgY(0) + 16}
         textAnchor="middle" fill="rgba(255,255,255,0.3)"
-        fontSize="10" fontFamily="var(--font-display)">{x}</text>
+        fontSize="12" fontFamily="var(--font-display)">{x}</text>
     )
   }
   for (let y = Math.ceil(GY1); y <= Math.floor(GY2); y++) {
@@ -105,7 +105,7 @@ function CoordinateGraph({ task, userA, userH, userK }) {
     axisLabels.push(
       <text key={`ly${y}`} x={toSvgX(0) - 10} y={toSvgY(y) + 4}
         textAnchor="end" fill="rgba(255,255,255,0.3)"
-        fontSize="10" fontFamily="var(--font-display)">{y}</text>
+        fontSize="12" fontFamily="var(--font-display)">{y}</text>
     )
   }
 
@@ -134,7 +134,7 @@ function CoordinateGraph({ task, userA, userH, userK }) {
       <circle cx={toSvgX(userH)} cy={toSvgY(userK)} r="5"
         fill="var(--neon-green)" opacity="0.9" />
       <text x={toSvgX(userH) + 10} y={toSvgY(userK) - 10}
-        fill="var(--neon-green)" fontSize="11" fontFamily="var(--font-display)"
+        fill="var(--neon-green)" fontSize="13" fontFamily="var(--font-display)"
         opacity="0.7">({userH},{userK})</text>
     </svg>
   )
@@ -237,7 +237,7 @@ export default function Mission1_Arc({ system, mission, onBack }) {
       </NeonText>
 
       <p style={{
-        fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
+        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
         fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
       }}>
         {completed
@@ -433,8 +433,8 @@ export default function Mission1_Arc({ system, mission, onBack }) {
       {/* Guide */}
       {!completed && !solved && (
         <div className="glass-panel" style={{
-          marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%',
-          fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
+          marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%',
+          fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-green)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>

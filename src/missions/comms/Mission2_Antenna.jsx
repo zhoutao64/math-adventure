@@ -88,14 +88,14 @@ function SlopeGrid({ point1, point2, rise, run, userSlope, solved }) {
           <line x1={px(point2[0])} y1={py(point1[1])} x2={px(point2[0])} y2={py(point2[1])}
             stroke="var(--neon-cyan)" strokeWidth={2} strokeDasharray="4,3" />
           <text x={px(point2[0]) + 8} y={(py(point1[1]) + py(point2[1])) / 2}
-            fill="var(--neon-cyan)" fontSize={11} fontFamily="var(--font-display)">
+            fill="var(--neon-cyan)" fontSize={13} fontFamily="var(--font-display)">
             rise={rise}
           </text>
           {/* Horizontal run */}
           <line x1={px(point1[0])} y1={py(point1[1])} x2={px(point2[0])} y2={py(point1[1])}
             stroke="var(--neon-yellow)" strokeWidth={2} strokeDasharray="4,3" />
           <text x={(px(point1[0]) + px(point2[0])) / 2} y={py(point1[1]) + 14}
-            fill="var(--neon-yellow)" fontSize={11} fontFamily="var(--font-display)" textAnchor="middle">
+            fill="var(--neon-yellow)" fontSize={13} fontFamily="var(--font-display)" textAnchor="middle">
             run={run}
           </text>
         </>
@@ -105,14 +105,14 @@ function SlopeGrid({ point1, point2, rise, run, userSlope, solved }) {
       <circle cx={px(point1[0])} cy={py(point1[1])} r={6}
         fill="var(--neon-pink)" stroke="#fff" strokeWidth={1.5} />
       <text x={px(point1[0])} y={py(point1[1]) - 10}
-        fill="var(--neon-pink)" fontSize={11} textAnchor="middle" fontFamily="var(--font-display)">
+        fill="var(--neon-pink)" fontSize={13} textAnchor="middle" fontFamily="var(--font-display)">
         ({point1[0]},{point1[1]})
       </text>
 
       <circle cx={px(point2[0])} cy={py(point2[1])} r={6}
         fill="var(--neon-pink)" stroke="#fff" strokeWidth={1.5} />
       <text x={px(point2[0])} y={py(point2[1]) - 10}
-        fill="var(--neon-pink)" fontSize={11} textAnchor="middle" fontFamily="var(--font-display)">
+        fill="var(--neon-pink)" fontSize={13} textAnchor="middle" fontFamily="var(--font-display)">
         ({point2[0]},{point2[1]})
       </text>
     </svg>
@@ -198,7 +198,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
       </NeonText>
 
       <p style={{
-        fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
+        fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16,
         fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px',
       }}>
         {completed
@@ -211,7 +211,7 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
         <>
           {/* Coordinate Grid */}
           <div className="glass-panel" style={{
-            padding: 'clamp(12px, 3vw, 20px)', maxWidth: 500, width: '100%',
+            padding: 'clamp(14px, 3vw, 20px)', maxWidth: 500, width: '100%',
             marginBottom: 20,
           }}>
             <div style={{ ...meterLabel, marginBottom: 8 }}>
@@ -320,8 +320,8 @@ export default function Mission2_Antenna({ system, mission, onBack }) {
       {/* Guide */}
       {!completed && !solved && (
         <div className="glass-panel" style={{
-          marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%',
-          fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
+          marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%',
+          fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8,
           fontFamily: 'var(--font-body)',
         }}>
           <div style={{ color: 'var(--neon-pink)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>

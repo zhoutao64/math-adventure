@@ -275,7 +275,7 @@ export default function Mission2_Substitution({ system, mission, onBack }) {
       <div style={{ fontSize: 11, letterSpacing: 3, color: 'var(--neon-purple)', marginBottom: 6 }}>🛡️ MISSION 2</div>
       <NeonText as="h2" color="purple" style={{ fontSize: 'clamp(18px, 4vw, 22px)', marginBottom: 8 }}>频率替换</NeonText>
 
-      <p style={{ fontSize: 'clamp(12px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16, fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px' }}>
+      <p style={{ fontSize: 'clamp(14px, 2.5vw, 13px)', color: 'rgba(255,255,255,0.5)', marginBottom: 16, fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: 500, padding: '0 8px' }}>
         {completed ? '🎉 Substitution mastered! Shield layer 2 online.' : 'Use substitution to solve the system of equations.'}
       </p>
 
@@ -293,7 +293,7 @@ export default function Mission2_Substitution({ system, mission, onBack }) {
             {/* Step history */}
             {history.map((h, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, opacity: 0.5 }}>
-                <span style={{ fontSize: 'clamp(12px, 2.5vw, 14px)', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-display)', textDecoration: 'line-through' }}>{h.current}</span>
+                <span style={{ fontSize: 'clamp(14px, 2.5vw, 14px)', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-display)', textDecoration: 'line-through' }}>{h.current}</span>
                 <span style={{ fontSize: 11, color: 'var(--neon-green)', fontFamily: 'var(--font-display)' }}>{h.op}</span>
               </div>
             ))}
@@ -334,7 +334,7 @@ export default function Mission2_Substitution({ system, mission, onBack }) {
         <div className="glass-panel" style={{ padding: 'clamp(20px, 4vw, 32px)', maxWidth: 500, width: '100%', marginBottom: 20, textAlign: 'center' }}>
           <div style={{ ...meterLabel, marginBottom: 16 }}>SOLUTION</div>
           {history.map((h, i) => (
-            <div key={i} style={{ fontSize: 'clamp(12px, 2.5vw, 14px)', color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-display)', marginBottom: 4 }}>
+            <div key={i} style={{ fontSize: 'clamp(14px, 2.5vw, 14px)', color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-display)', marginBottom: 4 }}>
               {h.current} → <span style={{ color: 'var(--neon-cyan)' }}>{h.op}</span> → {h.result}
             </div>
           ))}
@@ -351,7 +351,7 @@ export default function Mission2_Substitution({ system, mission, onBack }) {
       </div>
 
       {!completed && !showResult && selected === null && (
-        <div className="glass-panel" style={{ marginTop: 20, padding: 'clamp(12px, 2vw, 16px)', maxWidth: 500, width: '100%', fontSize: 'clamp(11px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
+        <div className="glass-panel" style={{ marginTop: 20, padding: 'clamp(14px, 2vw, 16px)', maxWidth: 500, width: '100%', fontSize: 'clamp(13px, 2vw, 12px)', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}>
           <div style={{ color: 'var(--neon-purple)', fontSize: 11, letterSpacing: 2, marginBottom: 8 }}>💡 GUIDE</div>
           {task?.hint}
         </div>
